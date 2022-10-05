@@ -10,8 +10,6 @@ vim.opt.title = true
 -- 使用相对行号
 vim.wo.number = true
 vim.wo.relativenumber = true
--- 高亮所在行
-vim.wo.cursorline = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
@@ -81,10 +79,15 @@ vim.o.splitright = true
 -- 自动补全不自动选中
 vim.g.completeopt = "menu,menuone,noselect,noinsert"
 
--- 样式
--- vim.o.background = "dark"
--- vim.o.termguicolors = true
--- vim.opt.termguicolors = true
+-- hightligh
+-- 高亮所在行
+-- vim.opt.cursorline = true
+vim.opt.cursorline = false
+vim.opt.termguicolors = true
+vim.opt.winblend = 0
+vim.opt.wildoptions = 'pum'
+vim.opt.pumblend = 5
+vim.opt.background = 'dark'
 
 -- 不可见字符的显示，这里只把空格显示为一个点
 vim.o.list = true
