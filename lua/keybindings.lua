@@ -83,6 +83,8 @@ map("n", "<leader>z", ":sus<CR>")
 -- visual模式下缩进代码
 map("v", "<", "<gv")
 map("v", ">", ">gv")
+map("n", "<", "<<")
+map("n", ">", ">>")
 -- 上下移动选中文本
 map("v", "J", ":move '>+1<CR>gv-gv")
 map("v", "K", ":move '<-2<CR>gv-gv")
@@ -109,3 +111,48 @@ map("n", "<C-Down>", ":resize +2<CR>")
 map("n", "<C-Up>", ":resize -2<CR>")
 -- 相等比例
 map("n", "s=", "<C-w>=")
+
+--------------------------------------------------------------------
+
+-- nvim-tree
+map("n", "<C-m>", ":NvimTreeToggle<CR>", opt)
+map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+
+-- 插件快捷键
+local pluginKeys = {}
+-- 列表快捷键
+pluginKeys.nvimTreeList = { -- 打开文件或文件夹
+  { key = { "o", "<2-LeftMouse>" }, action = "edit" },
+  { key = "<CR>", action = "system_open" },
+  -- v分屏打开文件
+  { key = "v", action = "vsplit" },
+  -- h分屏打开文件
+  { key = "h", action = "split" },
+  -- Ignore (node_modules)
+  { key = "i", action = "toggle_ignored" },
+  -- Hide (dotfiles)
+  { key = ".", action = "toggle_dotfiles" },
+  { key = "R", action = "refresh" },
+  -- 文件操作
+  { key = "a", action = "create" },
+  { key = "d", action = "remove" },
+  { key = "r", action = "rename" },
+  { key = "x", action = "cut" },
+  { key = "c", action = "copy" },
+  { key = "p", action = "paste" },
+  { key = "y", action = "copy_name" },
+  { key = "Y", action = "copy_path" },
+  { key = "gy", action = "copy_absolute_path" },
+  { key = "I", action = "toggle_file_info" },
+  { key = "n", action = "tabnew" },
+  -- 进入下一级
+  { key = { "]" }, action = "cd" },
+  -- 进入上一级
+  { key = { "[" }, action = "dir_up" },
+}
+
+return pluginKeys
+
+
+
+

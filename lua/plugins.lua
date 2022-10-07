@@ -19,4 +19,18 @@ packer.startup(function(use)
     use 'xiyaowong/nvim-transparent'
     use 'ishan9299/nvim-solarized-lua'
     use 'EdenEast/nightfox.nvim'
+    ------------------- nvim-tree ----------------------------
+    use {
+      'kyazdani42/nvim-tree.lua',
+      requires = {
+        'kyazdani42/nvim-web-devicons', -- optional, for file icons
+      },
+      tag = 'nightly' -- optional, updated every week. (see issue #1193)
+    }
+    -- bufferline (新增)
+    use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" }})
+
+    use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+
+    use("arkav/lualine-lsp-progress")
 end)

@@ -1,14 +1,13 @@
+----------- 自动加载 after 里面的所有文件夹 ---------------
 require('base')
 require('keybindings')
 require('plugins')
 require('colorschema')
 
------------- plugin config
-require('plugin-config.transparent')
-
 local has = vim.fn.has
 local is_mac = has "macunix"
 local is_win = has "win32"
+
 
 if is_mac then
   require('macos')
