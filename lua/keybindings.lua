@@ -151,6 +151,9 @@ pluginKeys.nvimTreeList = { -- 打开文件或文件夹
   { key = { "[" }, action = "dir_up" },
 }
 
+
+
+
 return pluginKeys
 
 

@@ -14,6 +14,9 @@ packer.startup(function(use)
     -- 你的插件列表...
     use 'shaunsingh/solarized.nvim'
 
+    use 'nvim-lua/plenary.nvim' -- Common utilities
+
+
     ------------------- colortheme ----------------------------
     -- https://github.com/xiyaowong/nvim-transparent
     use 'xiyaowong/nvim-transparent'
@@ -33,4 +36,13 @@ packer.startup(function(use)
     use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
     use("arkav/lualine-lsp-progress")
+
+
+    -- telescope
+    use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
+    use 'nvim-telescope/telescope-file-browser.nvim'
+
+    --- dashboard
+    use("glepnir/dashboard-nvim")
+    use("ahmedkhalf/project.nvim")
 end)
