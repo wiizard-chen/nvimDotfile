@@ -56,15 +56,15 @@ map("i", "<C-h>", '<BS>')
 
 -- c-k delete all backword
 -- c-u delete all forword
-map("i", "<C-u>", '<space><Esc>"_d0xi')
+-- map("i", "<C-u>", '<space><Esc>"_d0xi')
 map("i", "<C-k>", '<Esc>l"_d$a')
 
 
 -- go back and reback
 -- c-o, go back
 -- c-i, reback
-map("i", "<C-o>", "<Esc><C-o>i")
-map("i", "<C-i>", "<Esc><C-i>i")
+-- map("i", "<C-o>", "<Esc><C-o>i")
+-- map("i", "<C-i>", "<Esc><C-i>i")
 
 
 -- create a new tab
@@ -76,6 +76,7 @@ map("n", "<leader>fs", ":wa!<CR>")
 map("n", "<leader>q", ":wqa!<CR>")
 -- switch background thread
 map("n", "<leader>z", ":sus<CR>")
+
 
 
 -- scroll screen
