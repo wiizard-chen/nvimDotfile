@@ -45,4 +45,12 @@ packer.startup(function(use)
     --- dashboard
     use("glepnir/dashboard-nvim")
     use("ahmedkhalf/project.nvim")
+
+
+    --- treesitter
+    use {
+      'nvim-treesitter/nvim-treesitter',
+      run = function() require('nvim-treesitter.install').update({ with_sync = true }) end,
+    }
+
 end)
