@@ -1,15 +1,10 @@
 require('base')
 require('keybindings')
+require('plugins')
+require('colorschema')
 
-
-
-
-
-
-
-
-
-
+------------ plugin config
+require('plugin-config.transparent')
 
 local has = vim.fn.has
 local is_mac = has "macunix"
