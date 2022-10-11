@@ -85,4 +85,9 @@ packer.startup(function(use)
   -- prettier 格式化
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
 
+  -- UI 增强
+  use "onsails/lspkind-nvim"
+  use 'glepnir/lspsaga.nvim' -- LSP UIs
+
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 end)
