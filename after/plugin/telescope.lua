@@ -15,6 +15,9 @@ telescope.setup {
       n = {
         ["q"] = actions.close
       },
+      i = {
+        ["<C-[>"] = actions.close
+      }
     },
     file_ignore_patterns = {
       ".git/", "node_modules/"
@@ -82,4 +85,3 @@ vim.keymap.set("n", "sf", function()
     layout_config = { height = 40 }
   })
 end)
-

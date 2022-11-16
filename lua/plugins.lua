@@ -7,7 +7,6 @@ end
 
 vim.cmd [[packadd packer.nvim]]
 
-
 packer.startup(function(use)
   -- Packer 可以管理自己本身
   use 'wbthomason/packer.nvim'
@@ -16,13 +15,17 @@ packer.startup(function(use)
 
   use 'nvim-lua/plenary.nvim' -- Common utilities
 
-
   ------------------- colortheme ----------------------------
   -- https://github.com/xiyaowong/nvim-transparent
+
   use 'xiyaowong/nvim-transparent'
+
   use 'ishan9299/nvim-solarized-lua'
+
   use 'EdenEast/nightfox.nvim'
+
   ------------------- nvim-tree ----------------------------
+
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -30,6 +33,7 @@ packer.startup(function(use)
     },
     tag = 'nightly' -- optional, updated every week. (see issue #1193)
   }
+
   -- bufferline (新增)
   use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
 
@@ -37,12 +41,13 @@ packer.startup(function(use)
 
   use("arkav/lualine-lsp-progress")
 
-
   -- telescope
+
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
   use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- dashboard
+
   use("glepnir/dashboard-nvim")
   use("ahmedkhalf/project.nvim")
 
@@ -80,7 +85,7 @@ packer.startup(function(use)
   use("b0o/schemastore.nvim")
 
   -- Lua 增强
-  use("folke/lua-dev.nvim")
+  -- use("folke/lua-dev.nvim")
 
   -- prettier 格式化
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
