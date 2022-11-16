@@ -86,6 +86,7 @@ packer.startup(function(use)
 
   -- Lua 增强
   -- use("folke/lua-dev.nvim")
+  use("folke/neodev.nvim")
 
   -- prettier 格式化
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
