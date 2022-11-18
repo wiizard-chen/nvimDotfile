@@ -42,14 +42,15 @@ packer.startup(function(use)
   use("arkav/lualine-lsp-progress")
 
   -- telescope
-
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
   use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- dashboard
-
   use("glepnir/dashboard-nvim")
   use("ahmedkhalf/project.nvim")
+
+  -- Comment
+  use("numToStr/Comment.nvim")
 
   -- treesitter
   use {

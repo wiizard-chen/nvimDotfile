@@ -30,9 +30,9 @@ nvim_tree.setup({
   },
   view = {
     -- 宽度
-    width = 34,
+    width = 60,
     -- 也可以 'right'
-    side = "left",
+    side = "right",
     -- 隐藏根目录
     hide_root_folder = false,
     -- 自定义列表中快捷键
@@ -42,7 +42,7 @@ nvim_tree.setup({
       list = list_keys,
     },
     -- 不显示行数
-    number = false,
+    number = true,
     relativenumber = false,
     -- 显示图标
     signcolumn = "yes",
@@ -50,9 +50,9 @@ nvim_tree.setup({
   actions = {
     open_file = {
       -- 首次打开大小适配
-      resize_window = true,
+      resize_window = false,
       -- 打开文件时关闭 tree
-      quit_on_open = false,
+      quit_on_open = true,
     },
   },
   -- wsl install -g wsl-open

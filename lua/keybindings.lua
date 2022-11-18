@@ -64,7 +64,7 @@ map("i", "<C-k>", '<Esc>l"_d$a')
 -- c-o, go back
 -- c-i, reback
 -- map("i", "<C-o>", "<Esc><C-o>i")
--- map("i", "<C-i>", "<Esc><C-i>i")
+-- map("n", "<C-i>", "<C-i>")
 
 
 -- create a new tab
