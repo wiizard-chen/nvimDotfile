@@ -9,6 +9,65 @@ end
 
 local fb_actions = require "telescope".extensions.file_browser.actions
 
+local function get_pickers(actions)
+  return {
+    find_files = {
+      theme = "dropdown",
+      hidden = true,
+      previewer = false,
+    },
+    live_grep = {
+      --@usage don't include the filename in the search results
+      only_sort_text = true,
+      theme = "dropdown",
+    },
+    grep_string = {
+      only_sort_text = true,
+      theme = "dropdown",
+    },
+    buffers = {
+      theme = "dropdown",
+      previewer = false,
+      initial_mode = "normal",
+      mappings = {
+        i = {
+          ["<C-d>"] = actions.delete_buffer,
+        },
+        n = {
+          ["dd"] = actions.delete_buffer,
+        },
+      },
+    },
+    planets = {
+      show_pluto = true,
+      show_moon = true,
+    },
+    git_files = {
+      theme = "dropdown",
+      hidden = true,
+      previewer = false,
+      show_untracked = true,
+    },
+    lsp_references = {
+      theme = "dropdown",
+      initial_mode = "normal",
+    },
+    lsp_definitions = {
+      theme = "dropdown",
+      initial_mode = "normal",
+    },
+    lsp_declarations = {
+      theme = "dropdown",
+      initial_mode = "normal",
+    },
+    lsp_implementations = {
+      theme = "dropdown",
+      initial_mode = "normal",
+    },
+  }
+end
+
+
 telescope.setup {
   defaults = {
     mappings = {
@@ -23,7 +82,14 @@ telescope.setup {
       ".git/", "node_modules/"
     }
   },
+  pickers = get_pickers(actions),
   extensions = {
+    fzf = {
+      fuzzy = true, -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true, -- override the file sorter
+      case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+    },
     file_browser = {
       theme = "dropdown",
       -- disables netrw and use telescope-file-browser in its place
@@ -47,6 +113,7 @@ telescope.setup {
 }
 
 telescope.load_extension("file_browser")
+telescope.load_extension("fzf")
 
 
 --------- telescope -----------------

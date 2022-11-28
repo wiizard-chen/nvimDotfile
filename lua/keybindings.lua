@@ -99,7 +99,7 @@ map("n", "sc", "<C-w>c")
 -- Close other window
 map("n", "so", "<C-w>o")
 -- Move window
-map('n', '<Space>', '<C-w>w')
+-- map('n', '<Space>', '<C-w>w')
 map('', 'sh', '<C-w>h')
 map('', 'sk', '<C-w>k')
 map('', 'sj', '<C-w>j')
@@ -117,6 +117,11 @@ map("n", "s=", "<C-w>=")
 -- nvim-tree
 map("n", "<C-m>", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
+
+-- bufferline
+map('n', 'tp', '<Cmd>BufferLineCycleNext<CR>', {})
+map('n', 'tn', '<Cmd>BufferLineCyclePrev<CR>', {})
+
 
 -- 插件快捷键
 local pluginKeys = {}

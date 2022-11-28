@@ -43,11 +43,13 @@ packer.startup(function(use)
 
   -- telescope
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- dashboard
   use("glepnir/dashboard-nvim")
-  use("ahmedkhalf/project.nvim")
+  -- project
+  use { "ahmedkhalf/project.nvim" }
 
   -- Comment
   use("numToStr/Comment.nvim")
@@ -66,6 +68,9 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
+
+  -- harpoon
+  use("ThePrimeagen/harpoon")
 
   -- 补全引擎
   use("hrsh7th/nvim-cmp")

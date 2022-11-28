@@ -3,7 +3,7 @@ if (not status) then return end
 
 bufferline.setup({
   options = {
-    -- 关闭 Tab 的命令
+    -- 关闭 Thttps://github.com/Shatur/neovim-session-managerab 的命令
     close_command = "Bdelete! %d",
     right_mouse_command = "Bdelete! %d",
     -- 侧边栏配置
@@ -60,6 +60,4 @@ bufferline.setup({
   },
 })
 
-vim.keymap.set('n', ',p', '<Cmd>BufferLineCycleNext<CR>', {})
-vim.keymap.set('n', ',n', '<Cmd>BufferLineCyclePrev<CR>', {})
 
