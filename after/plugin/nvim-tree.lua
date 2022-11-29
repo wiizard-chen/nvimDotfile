@@ -12,16 +12,29 @@ local list_keys = require("keybindings").nvimTreeList
 nvim_tree.setup({
   -- 完全禁止内置netrw
   disable_netrw = true,
+  ignore_ft_on_setup = {
+    "startify",
+    "dashboard",
+    "alpha",
+  },
+  auto_reload_on_write = false,
+
+  hijack_directories = {
+    enable = true,
+  },
+
   -- 不显示 git 状态图标
   git = {
     enable = false,
   },
   -- project plugin 需要这样设置
-  update_cwd = true,
+  update_cwd = false,
+
   update_focused_file = {
     enable = true,
-    update_cwd = true,
+    update_cwd = false,
   },
+
   filters = {
     -- 隐藏 .文件
     dotfiles = false,
@@ -32,7 +45,7 @@ nvim_tree.setup({
     -- 宽度
     width = 60,
     -- 也可以 'right'
-    side = "right",
+    side = "left",
     -- 隐藏根目录
     hide_root_folder = false,
     -- 自定义列表中快捷键
@@ -48,13 +61,26 @@ nvim_tree.setup({
     signcolumn = "yes",
   },
   actions = {
+    use_system_clipboard = true,
+    change_dir = {
+      enable = true,
+      global = false,
+      restrict_above_cwd = false,
+    },
     open_file = {
-      -- 首次打开大小适配
+      quit_on_open = false,
       resize_window = false,
-      -- 打开文件时关闭 tree
-      quit_on_open = true,
+      window_picker = {
+        enable = true,
+        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
+        exclude = {
+          filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame" },
+          buftype = { "nofile", "terminal", "help" },
+        },
+      },
     },
   },
+
   -- wsl install -g wsl-open
   -- https://github.com/4U6U57/wsl-open/
   system_open = {
