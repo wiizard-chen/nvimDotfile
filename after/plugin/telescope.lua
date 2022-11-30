@@ -64,6 +64,10 @@ local function get_pickers(actions)
       theme = "dropdown",
       initial_mode = "normal",
     },
+    harpoon = {
+      theme = "dropdown",
+      initial_mode = "normal",
+    },
   }
 end
 
@@ -114,6 +118,7 @@ telescope.setup {
 
 telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
+telescope.load_extension("harpoon")
 
 
 --------- telescope -----------------
@@ -140,6 +145,8 @@ end)
 vim.keymap.set('n', ';e', function()
   builtin.diagnostics()
 end)
+
+
 vim.keymap.set("n", "sf", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",

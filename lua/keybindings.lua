@@ -115,15 +115,11 @@ map("n", "s=", "<C-w>=")
 --------------------------------------------------------------------
 
 -- nvim-tree
-map("n", "<C-m>", ":NvimTreeToggle<CR>", opt)
 map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 
 -- bufferline
 map('n', 'tp', '<Cmd>BufferLineCycleNext<CR>', {})
 map('n', 'tn', '<Cmd>BufferLineCyclePrev<CR>', {})
-
-
-
 
 
 -- 插件快捷键
@@ -167,10 +163,11 @@ end
 
 -- typescript 快捷键
 pluginKeys.mapTsLSP = function(mapbuf)
-  mapbuf("n", "gs", ":TSLspOrganize<CR>", opt)
   mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
   mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)
+  mapbuf("n", "go", ":TSLspOrganize<CR>", opt)
 end
+
 
 
 return pluginKeys
