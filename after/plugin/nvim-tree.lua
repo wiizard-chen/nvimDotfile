@@ -9,6 +9,25 @@ end
 -- 列表操作快捷键
 local list_keys = require("keybindings").nvimTreeList
 
+function start_telescope(telescope_mode)
+  local node = require("nvim-tree.lib").get_node_at_cursor()
+  local abspath = node.link_to or node.absolute_path
+  local is_folder = node.open ~= nil
+  local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
+  require("telescope.builtin")[telescope_mode] {
+    cwd = basedir,
+  }
+end
+
+local function telescope_find_files(_)
+  start_telescope "find_files"
+end
+
+local function telescope_live_grep(_)
+  start_telescope "live_grep"
+end
+
+
 nvim_tree.setup({
   -- 完全禁止内置netrw
   disable_netrw = true,
@@ -52,7 +71,28 @@ nvim_tree.setup({
     mappings = {
       -- 只用内置快捷键
       custom_only = true,
-      list = list_keys,
+      list = {
+        -- 文件操作
+        { key = "a", action = "create" },
+        { key = "d", action = "remove" },
+        { key = "r", action = "rename" },
+        { key = "x", action = "cut" },
+        { key = "c", action = "copy" },
+        { key = "p", action = "paste" },
+        { key = "y", action = "copy_name" },
+        { key = "Y", action = "copy_path" },
+        { key = "gy", action = "copy_absolute_path" },
+        { key = "I", action = "toggle_file_info" },
+        { key = "n", action = "tabnew" },
+
+        { key = { "l", "o" }, action = "edit", mode = "n" },
+        { key = "<CR>", action = "system_open" },
+        { key = "h", action = "close_node" },
+        { key = "v", action = "vsplit" },
+        { key = "C", action = "cd" },
+        { key = "g;f", action = "telescope_find_files", action_cb = telescope_find_files },
+        { key = "g;r", action = "telescope_live_grep", action_cb = telescope_live_grep },
+      },
     },
     -- 不显示行数
     number = true,

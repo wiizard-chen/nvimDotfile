@@ -31,7 +31,10 @@ packer.startup(function(use)
 
   use 'ishan9299/nvim-solarized-lua'
 
-  use 'EdenEast/nightfox.nvim'
+  use {'EdenEast/nightfox.nvim'}
+
+  use { "catppuccin/nvim", as = "catppuccin" }
+
 
   ------------------- nvim-tree ----------------------------
 
@@ -60,9 +63,6 @@ packer.startup(function(use)
   -- project
   -- use { "ahmedkhalf/project.nvim" }
 
-  -- Comment
-  use("numToStr/Comment.nvim")
-
   -- treesitter
   use {
     'nvim-treesitter/nvim-treesitter',
@@ -71,12 +71,11 @@ packer.startup(function(use)
 
   -- comment
   use {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    event = "BufReadPost",
+    "numToStr/Comment.nvim",
   }
   use {
-    "numToStr/Comment.nvim",
-    event = "BufRead",
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    event = "BufReadPost",
   }
 
 
