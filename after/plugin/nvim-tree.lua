@@ -43,11 +43,11 @@ nvim_tree.setup({
   },
   view = {
     -- 宽度
-    width = 60,
+    width = 30,
     -- 也可以 'right'
     side = "left",
     -- 隐藏根目录
-    hide_root_folder = false,
+    hide_root_folder = true,
     -- 自定义列表中快捷键
     mappings = {
       -- 只用内置快捷键
@@ -69,7 +69,7 @@ nvim_tree.setup({
     },
     open_file = {
       quit_on_open = false,
-      resize_window = false,
+      resize_window = true,
       window_picker = {
         enable = true,
         chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",

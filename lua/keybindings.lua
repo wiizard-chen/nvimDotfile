@@ -123,6 +123,9 @@ map('n', 'tp', '<Cmd>BufferLineCycleNext<CR>', {})
 map('n', 'tn', '<Cmd>BufferLineCyclePrev<CR>', {})
 
 
+
+
+
 -- 插件快捷键
 local pluginKeys = {}
 -- 列表快捷键

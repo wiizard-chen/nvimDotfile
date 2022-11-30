@@ -58,7 +58,7 @@ packer.startup(function(use)
   -- dashboard
   use("glepnir/dashboard-nvim")
   -- project
-  use { "ahmedkhalf/project.nvim" }
+  -- use { "ahmedkhalf/project.nvim" }
 
   -- Comment
   use("numToStr/Comment.nvim")
@@ -68,6 +68,17 @@ packer.startup(function(use)
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate'
   }
+
+  -- comment
+  use {
+    "JoosepAlviste/nvim-ts-context-commentstring",
+    event = "BufReadPost",
+  }
+  use {
+    "numToStr/Comment.nvim",
+    event = "BufRead",
+  }
+
 
   -- mason
   use "williamboman/mason.nvim"
