@@ -27,7 +27,7 @@ packer.startup(function(use)
   ------------------- colortheme ----------------------------
   -- https://github.com/xiyaowong/nvim-transparent
 
-  use 'xiyaowong/nvim-transparent'
+  -- use 'xiyaowong/nvim-transparent'
 
   use 'ishan9299/nvim-solarized-lua'
 
@@ -59,7 +59,7 @@ packer.startup(function(use)
   use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- dashboard
-  use("glepnir/dashboard-nvim")
+  -- use("glepnir/dashboard-nvim")
   -- project
   use { "ahmedkhalf/project.nvim" }
 
@@ -90,6 +90,9 @@ packer.startup(function(use)
 
   -- harpoon
   use("ThePrimeagen/harpoon")
+
+  -- session manager
+  use { 'rmagatti/auto-session' }
 
   -- 补全引擎
   use("hrsh7th/nvim-cmp")
