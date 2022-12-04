@@ -73,10 +73,7 @@ packer.startup(function(use)
   use {
     "numToStr/Comment.nvim",
   }
-  use {
-    "JoosepAlviste/nvim-ts-context-commentstring",
-    event = "BufReadPost",
-  }
+  use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
 
   -- mason

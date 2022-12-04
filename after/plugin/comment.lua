@@ -3,13 +3,23 @@ local status, comment = pcall(require, "comment")
 if (not status) then return end
 
 local pre_hook
+
+-- ts_context_commentstring.integrations.comment_nvim
 local loaded, ts_comment = pcall(require, "ts_context_commentstring.integrations.comment_nvim")
+
+if (not loaded) then
+  print("ts_comment error")
+  return
+end
+
 if loaded and ts_comment then
   pre_hook = ts_comment.create_pre_hook()
 end
 
 local default_opt = {
+
     active = true,
+
     on_config_done = nil,
     ---Add a space b/w comment and the line
     ---@type boolean
@@ -50,7 +60,7 @@ local default_opt = {
     ---@type table
     opleader = {
       ---line-comment opfunc mapping
-      line = "gc",
+      line = "gcc",
       ---block-comment opfunc mapping
       block = "gb",
     },

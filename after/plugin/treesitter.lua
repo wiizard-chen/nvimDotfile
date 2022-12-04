@@ -3,7 +3,24 @@ if (not status) then return end
 
 ts.setup {
   context_commentstring = {
-    enable = true
+    enable = true,
+    enable_autocmd = false,
+    config = {
+      javascript = {
+        __default = '// %s',
+        jsx_element = '{/* %s */}',
+        jsx_fragment = '{/* %s */}',
+        jsx_attribute = '// %s',
+        comment = '// %s'
+      },
+      typescript = {
+        -- __default = '// %s',
+        tsx_element = '{/* %s */}',
+        tsx_fragment = '{/* %s */}',
+        tsx_attribute = '// %s',
+        comment = '// %s'
+      }
+    }
   },
   ensure_installed = {
     "tsx",

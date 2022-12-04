@@ -220,10 +220,8 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-ts-autotag"
   },
   ["nvim-ts-context-commentstring"] = {
-    loaded = false,
-    needs_bufread = false,
-    only_cond = false,
-    path = "/Users/admin/.local/share/nvim/site/pack/packer/opt/nvim-ts-context-commentstring",
+    loaded = true,
+    path = "/Users/admin/.local/share/nvim/site/pack/packer/start/nvim-ts-context-commentstring",
     url = "https://github.com/JoosepAlviste/nvim-ts-context-commentstring"
   },
   ["nvim-web-devicons"] = {
@@ -284,13 +282,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
-vim.cmd [[augroup packer_load_aucmds]]
-vim.cmd [[au!]]
-  -- Event lazy-loads
-time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufReadPost * ++once lua require("packer.load")({'nvim-ts-context-commentstring'}, { event = "BufReadPost *" }, _G.packer_plugins)]]
-time([[Defining lazy-load event autocommands]], false)
-vim.cmd("augroup END")
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
