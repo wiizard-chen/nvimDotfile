@@ -61,7 +61,7 @@ packer.startup(function(use)
   -- dashboard
   -- use("glepnir/dashboard-nvim")
   -- project
-  use { "ahmedkhalf/project.nvim" }
+  -- use { "ahmedkhalf/project.nvim" }
 
   -- treesitter
   use {

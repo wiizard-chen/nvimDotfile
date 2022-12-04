@@ -57,7 +57,6 @@ bufferline.setup({
       -- fg = 'black',
       -- bg = '#455668'
     },
-
   },
   -- highlights = {
   --   separator = {

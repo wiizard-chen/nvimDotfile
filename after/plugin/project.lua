@@ -37,6 +37,10 @@ project.setup({
   ---@usage list of lsp client names to ignore when using **lsp** detection. eg: { "efm", ... }
   ignore_lsp = {},
 
+
+  -- Path where project.nvim will store the project history for use in
+  -- telescope
+  datapath = vim.fn.stdpath("data"),
 })
 
 local status_telescope, telescope = pcall(require, "telescope")
