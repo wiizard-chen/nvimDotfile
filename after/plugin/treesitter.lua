@@ -2,6 +2,9 @@ local status, ts = pcall(require, "nvim-treesitter.configs")
 if (not status) then return end
 
 ts.setup {
+  context_commentstring = {
+    enable = true
+  },
   ensure_installed = {
     "tsx",
     "typescript",

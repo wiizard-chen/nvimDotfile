@@ -92,8 +92,8 @@ map("v", "K", ":move '<-2<CR>gv-gv")
 
 -- Split window
 map("n", "s", "")
-map('n', 'ss', ':split<Return><C-w>w')
-map('n', 'sv', ':vsplit<Return><C-w>w')
+map('n', 'ss', ':split<Return>')
+map('n', 'sv', ':vsplit<Return>')
 -- Close current window
 map("n", "sc", "<C-w>c")
 -- Close other window

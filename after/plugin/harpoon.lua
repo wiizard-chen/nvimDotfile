@@ -17,7 +17,7 @@ local opt = {
   silent = true,
 }
 
--- map('n', ";h", function() require("harpoon.ui").toggle_quick_menu() end, opt)
+map('n', ";u", function() require("harpoon.ui").toggle_quick_menu() end, opt)
 map('n', ";h", '<Cmd>Telescope harpoon marks<CR>', opt)
 -- map('n', ";h", function() 
 --   require("harpoon.ui").toggle_quick_menu() 

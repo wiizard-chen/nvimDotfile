@@ -27,7 +27,7 @@ local function get_pickers(actions)
     },
     buffers = {
       theme = "dropdown",
-      previewer = false,
+      -- previewer = true,
       initial_mode = "normal",
       mappings = {
         i = {
@@ -64,7 +64,7 @@ local function get_pickers(actions)
       theme = "dropdown",
       initial_mode = "normal",
     },
-    harpoon = {
+    harpoon_marks = {
       theme = "dropdown",
       initial_mode = "normal",
     },
