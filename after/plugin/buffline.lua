@@ -30,34 +30,55 @@ bufferline.setup({
     end,
 
     mode = "tabs",
-    separator_style = 'slant',
+
+    separator_style = 'thin',
+
     always_show_bufferline = false,
+
     show_buffer_close_icons = false,
+
     show_close_icon = false,
-    color_icons = true
 
+    color_icons = true,
 
+    number = true,
   },
   highlights = {
-    separator = {
-      fg = '#073642',
-      bg = '#002b36',
-    },
-    separator_selected = {
-      fg = '#073642',
-    },
-    background = {
-      fg = '#657b83',
-      bg = '#002b36'
+    -- background = {
+    --   italic = true,
+    --   bg = '#073642'
+    -- },
+    info = {
+        fg = 'yellow',
+        bg = 'red'
     },
     buffer_selected = {
-      fg = '#fdf6e3',
       bold = true,
+      -- fg = 'black',
+      -- bg = '#455668'
     },
-    fill = {
-      bg = '#073642'
-    }
+
   },
+  -- highlights = {
+  --   separator = {
+  --     fg = '#073642',
+  --     bg = '#002b36',
+  --   },
+  --   separator_selected = {
+  --     fg = '#073642',
+  --   },
+  --   background = {
+  --     fg = '#657b83',
+  --     bg = '#002b36'
+  --   },
+  --   buffer_selected = {
+  --     fg = '#fdf6e3',
+  --     bold = true,
+  --   },
+  --   fill = {
+  --     bg = '#073642'
+  --   }
+  -- },
 })
 
 
