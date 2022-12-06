@@ -41,7 +41,7 @@ bufferline.setup({
 
     color_icons = true,
 
-    number = true,
+    numbers = 'buffer_id',
   },
   highlights = {
     -- background = {

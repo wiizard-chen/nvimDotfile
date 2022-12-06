@@ -67,8 +67,6 @@ map("i", "<C-k>", '<Esc>l"_d$a')
 -- map("n", "<C-i>", "<C-i>")
 
 
--- create a new tab
-map('n', 'te', ':tabedit<CR>')
 
 -- close all window
 map("n", "qq", ":wqa!<CR>")
@@ -112,17 +110,29 @@ map("n", "<C-Up>", ":resize -2<CR>")
 -- 相等比例
 map("n", "s=", "<C-w>=")
 
-map("n", "<leader>r", ":source $MYVIMRC<CR>")
+-- map("n", "<leader>r", ":source $MYVIMRC<CR>")
+map("n", "<leader>r", ":edit<CR>")
 
 --------------------------------------------------------------------
 
 -- nvim-tree
 map("n", "<leader>m", ":NvimTreeToggle<CR>", opt)
 
--- bufferline
-map('n', 'tp', '<Cmd>BufferLineCycleNext<CR>', {})
-map('n', 'tn', '<Cmd>BufferLineCyclePrev<CR>', {})
+-- create a new tab
+map('n', 'tn', ':tabedit<CR>')
 
+-- bufferline
+-- map('n', 'tp', '<Cmd>BufferLineCycleNext<CR>', opt)
+-- map('n', 'tn', '<Cmd>BufferLineCyclePrev<CR>', opt)
+
+map('n', '<leader>1', '<cmd>lua require("bufferline").go_to_buffer(1, true)<cr>', opt);
+map('n', '<leader>2', '<cmd>lua require("bufferline").go_to_buffer(2, true)<cr>', opt);
+map('n', '<leader>3', '<cmd>lua require("bufferline").go_to_buffer(3, true)<cr>', opt);
+map('n', '<leader>4', '<cmd>lua require("bufferline").go_to_buffer(4, true)<cr>', opt);
+map('n', '<leader>5', '<cmd>lua require("bufferline").go_to_buffer(5, true)<cr>', opt);
+map('n', '<leader>6', '<cmd>lua require("bufferline").go_to_buffer(6, true)<cr>', opt);
+map('n', '<leader>7', '<cmd>lua require("bufferline").go_to_buffer(7, true)<cr>', opt);
+map('n', '<leader>8', '<cmd>lua require("bufferline").go_to_buffer(8, true)<cr>', opt);
 
 -- 插件快捷键
 local pluginKeys = {}

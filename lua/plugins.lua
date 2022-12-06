@@ -76,6 +76,11 @@ packer.startup(function(use)
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
 
+  -- float term
+  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+    require("toggleterm").setup()
+  end }
+
   -- mason
   use "williamboman/mason.nvim"
   use 'williamboman/mason-lspconfig.nvim'
