@@ -1,10 +1,15 @@
 local keybindings = require("keybindings")
 local ts_utils = require("nvim-lsp-ts-utils")
+
+local utils = require('utils')
+
+
 local opts = {
   flags = {
     debounce_text_changes = 150,
   },
-  capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities()),
+  -- capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities),
+  capabilities = utils.get_capabilities(),
 
   -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils/blob/main/lua/nvim-lsp-ts-utils/utils.lua
   -- 传入 tsserver 初始化参数

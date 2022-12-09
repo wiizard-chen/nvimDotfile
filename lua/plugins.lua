@@ -98,8 +98,10 @@ packer.startup(function(use)
 
   -- 补全引擎
   use("hrsh7th/nvim-cmp")
+
   -- Snippet 引擎
   use("hrsh7th/vim-vsnip")
+
   -- 补全源
   use("hrsh7th/cmp-vsnip")
   use("hrsh7th/cmp-nvim-lsp") -- { name = nvim_lsp }
@@ -120,6 +122,20 @@ packer.startup(function(use)
 
   -- prettier 格式化
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
+
+  -- fold
+  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+
+  use {
+  'lewis6991/gitsigns.nvim',
+  -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
+  }
+
+  -- motion
+  use {
+    'phaazon/hop.nvim',
+    branch = 'v2', -- optional but strongly recommended
+  }
 
   -- UI 增强
   use "onsails/lspkind-nvim"

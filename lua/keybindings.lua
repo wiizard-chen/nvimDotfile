@@ -66,6 +66,10 @@ map("i", "<C-k>", '<Esc>l"_d$a')
 -- map("i", "<C-o>", "<Esc><C-o>i")
 -- map("n", "<C-i>", "<C-i>")
 
+map("n", "<leader>j", "5j", opt)
+map("n", "<leader>k", "5k", opt)
+map("v", "<leader>j", "5j", opt)
+map("v", "<leader>k", "5k", opt)
 
 
 -- close all window
@@ -94,6 +98,7 @@ map('n', 'ss', ':split<Return>')
 map('n', 'sv', ':vsplit<Return>')
 -- Close current window
 map("n", "sc", "<C-w>c")
+map("n", "<leader>w", "<C-w>c")
 -- Close other window
 map("n", "so", "<C-w>o")
 -- Move window

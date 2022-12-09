@@ -41,7 +41,7 @@ bufferline.setup({
 
     color_icons = true,
 
-    numbers = 'buffer_id',
+    numbers = 'ordinal',
   },
   highlights = {
     -- background = {
