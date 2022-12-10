@@ -62,7 +62,7 @@ nvim_tree.setup({
   },
   view = {
     -- 宽度
-    width = 30,
+    width = 50,
     -- 也可以 'right'
     side = "left",
     -- 隐藏根目录

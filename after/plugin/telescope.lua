@@ -64,7 +64,7 @@ local function get_pickers(actions)
       theme = "dropdown",
       initial_mode = "normal",
     },
-    harpoon_marks = {
+    marks = {
       theme = "dropdown",
       initial_mode = "normal",
     },
@@ -79,7 +79,7 @@ telescope.setup {
         ["q"] = actions.close
       },
       i = {
-        ["<C-[>"] = actions.close
+        ["<C-w>"] = actions.close
       }
     },
     file_ignore_patterns = {
@@ -147,15 +147,15 @@ vim.keymap.set('n', ';e', function()
 end)
 
 
-vim.keymap.set("n", "sf", function()
-  telescope.extensions.file_browser.file_browser({
-    path = "%:p:h",
-    cwd = telescope_buffer_dir(),
-    respect_gitignore = false,
-    hidden = true,
-    grouped = true,
-    previewer = false,
-    initial_mode = "normal",
-    layout_config = { height = 40 }
-  })
-end)
+-- vim.keymap.set("n", "sf", function()
+--   telescope.extensions.file_browser.file_browser({
+--     path = "%:p:h",
+--     cwd = telescope_buffer_dir(),
+--     respect_gitignore = false,
+--     hidden = true,
+--     grouped = true,
+--     previewer = false,
+--     initial_mode = "normal",
+--     layout_config = { height = 40 }
+--   })
+-- end)

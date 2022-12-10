@@ -17,11 +17,18 @@ local opt = {
   silent = true,
 }
 
-map('n', ";u", function() require("harpoon.ui").toggle_quick_menu() end, opt)
-map('n', ";h", '<Cmd>Telescope harpoon marks<CR>', opt)
+harpoon.setup({
+  menu={
+    width = 100
+  }
+  -- width = vim.api.nvim_win_get_width(0),
+})
+-- map('n', "gh", '<Cmd>Telescope harpoon marks<CR>', opt)
 -- map('n', ";h", function() 
 --   require("harpoon.ui").toggle_quick_menu() 
 -- end, opt)
+
+map('n', "gh", function() require("harpoon.ui").toggle_quick_menu() end, opt)
 map('n', ";a", function() require("harpoon.mark").add_file() end, opt)
 
 
