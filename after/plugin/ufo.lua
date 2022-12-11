@@ -30,16 +30,21 @@ local handler = function(virtText, lnum, endLnum, width, truncate)
     return newVirtText
 end
 
--- global handler
-require('ufo').setup({
-    fold_virt_text_handler = handler
-})
 
--- buffer scope handler
--- will override global handler if it is existed
-local bufnr = vim.api.nvim_get_current_buf()
+-- fold
+-- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- 开启 Folding 模块
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.o.foldcolumn = '0' -- '0' is not bad
+vim.o.foldlevel = 3 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 3
+vim.o.foldenable = true
 
-require('ufo').setFoldVirtTextHandler(bufnr, handler)
+
+-- Using ufo provider need remap `zR` and `zM`. If Neovim is 0.6.1, remap yourself
+vim.keymap.set('n', 'zR', require('ufo').openAllFolds)
+vim.keymap.set('n', 'zM', require('ufo').closeAllFolds)
 
 require('ufo').setup({
     provider_selector = function(bufnr, filetype, buftype)

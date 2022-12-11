@@ -18,19 +18,17 @@ local opts = {
     hostInfo = "neovim",
     preferences = {
       includeInlayParameterNameHints = "all",
-      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-      includeInlayFunctionParameterTypeHints = true,
-      includeInlayVariableTypeHints = true,
-      includeInlayPropertyDeclarationTypeHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayEnumMemberValueHints = true,
+      includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+      includeInlayFunctionParameterTypeHints = false,
+      includeInlayVariableTypeHints = false,
+      includeInlayPropertyDeclarationTypeHints = false,
+      includeInlayFunctionLikeReturnTypeHints = false,
+      includeInlayEnumMemberValueHints = false,
     },
   },
 
   on_attach = function(client, bufnr)
     -- 禁用格式化功能，交给专门插件插件处理
-
-
     local function buf_set_keymap(...)
       vim.api.nvim_buf_set_keymap(bufnr, ...)
     end
@@ -64,7 +62,8 @@ local opts = {
       },
 
       -- inlay hints
-      auto_inlay_hints = true,
+      auto_inlay_hints = false,
+
       inlay_hints_highlight = "Comment",
       inlay_hints_priority = 200, -- priority of the hint extmarks
       inlay_hints_throttle = 150, -- throttle the inlay hint request

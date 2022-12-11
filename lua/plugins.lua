@@ -94,7 +94,7 @@ packer.startup(function(use)
   use("ThePrimeagen/harpoon")
 
   -- session manager
-  use { 'rmagatti/auto-session' }
+  -- use { 'rmagatti/auto-session' }
 
   -- 补全引擎
   use("hrsh7th/nvim-cmp")
@@ -126,10 +126,18 @@ packer.startup(function(use)
   -- fold
   use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
-  use {
-  'lewis6991/gitsigns.nvim',
-  -- tag = 'release' -- To use the latest release (do not use this if you run Neovim nightly or dev builds!)
-  }
+  -- session
+  use({
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    module = "persistence",
+    config = function()
+      require("persistence").setup({
+        dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
+      })
+    end,
+  })
+  use { 'lewis6991/gitsigns.nvim', }
 
   -- motion
   use {

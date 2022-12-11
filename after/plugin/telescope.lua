@@ -76,7 +76,8 @@ telescope.setup {
   defaults = {
     mappings = {
       n = {
-        ["q"] = actions.close
+        ["q"] = actions.close,
+        ["<C-w>"] = actions.close
       },
       i = {
         ["<C-w>"] = actions.close
