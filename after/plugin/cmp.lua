@@ -25,7 +25,7 @@ cmp.setup({
   -- 来源
   sources = cmp.config.sources({
     { name = "nvim_lsp" },
-    { name = "nvim_lsp_signature_help" },
+    -- { name = "nvim_lsp_signature_help" },
     -- For vsnip users.
     { name = "vsnip" },
     { name = "buffer" },
@@ -38,6 +38,8 @@ cmp.setup({
   }, { { name = "path" } }),
 
   mapping = cmp.mapping.preset.insert({
+    ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+    ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),

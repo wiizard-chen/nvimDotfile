@@ -56,7 +56,6 @@ packer.startup(function(use)
   -- telescope
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use 'nvim-telescope/telescope-file-browser.nvim'
 
   -- dashboard
   -- use("glepnir/dashboard-nvim")
@@ -84,8 +83,8 @@ packer.startup(function(use)
   -- mason
   use "williamboman/mason.nvim"
   use 'williamboman/mason-lspconfig.nvim'
-  use "neovim/nvim-lspconfig"
 
+  use "neovim/nvim-lspconfig"
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
@@ -93,8 +92,6 @@ packer.startup(function(use)
   -- harpoon
   use("ThePrimeagen/harpoon")
 
-  -- session manager
-  -- use { 'rmagatti/auto-session' }
 
   -- 补全引擎
   use("hrsh7th/nvim-cmp")
@@ -126,17 +123,20 @@ packer.startup(function(use)
   -- fold
   use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
 
-  -- session
-  use({
-    "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    module = "persistence",
+  -- session manager
+  use {
+    'rmagatti/auto-session',
     config = function()
-      require("persistence").setup({
-        dir = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/"), -- directory where session files are saved
-      })
-    end,
-  })
+      require("auto-session").setup {
+        log_level = "error",
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+      }
+    end
+  }
+  -- tabby
+  -- use 'nanozuki/tabby.nvim'
+
+
   use { 'lewis6991/gitsigns.nvim', }
 
   -- motion

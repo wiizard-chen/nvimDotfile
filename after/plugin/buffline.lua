@@ -29,7 +29,9 @@ bufferline.setup({
       return s
     end,
 
-    mode = "tabs", -- set to "tabs" to only show tabpages instead
+    -- mode = "tabs", -- set to "tabs" to only show tabpages instead
+
+    mode = "buffers", -- set to "tabs" to only show tabpages instead
 
     separator_style = 'thin',
 
