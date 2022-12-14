@@ -88,6 +88,7 @@ packer.startup(function(use)
   use 'windwp/nvim-autopairs'
   use 'windwp/nvim-ts-autotag'
   use 'norcalli/nvim-colorizer.lua'
+  use "ray-x/lsp_signature.nvim"
 
   -- harpoon
   use("ThePrimeagen/harpoon")
@@ -135,7 +136,8 @@ packer.startup(function(use)
   }
   -- tabby
   -- use 'nanozuki/tabby.nvim'
-
+  --
+  use 'famiu/bufdelete.nvim'
 
   use { 'lewis6991/gitsigns.nvim', }
 

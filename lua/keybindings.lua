@@ -98,14 +98,14 @@ map('n', 'ss', ':split<Return>')
 map('n', 'sv', ':vsplit<Return>')
 -- Close current window
 map("n", "sc", "<C-w>c")
-map("n", "<leader>w", "<C-w>c")
+map("n", "<leader>w", "<cmd>lua require('bufdelete').bufdelete(0, true)<CR>")
 -- Close other window
 map("n", "so", "<C-w>o")
 -- Move window
 -- map('n', '<Space>', '<C-w>w')
 map('', 'sh', '<C-w>h')
 map('', 'sk', '<C-w>k')
-map('', 'sj', '<C-w>j')
+map('', 'sj', '<C-w>j') 
 map('', 'sl', '<C-w>l')
 -- Resize window
 map("n", "<C-Left>", ":vertical resize -2<CR>")
