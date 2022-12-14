@@ -142,10 +142,12 @@ packer.startup(function(use)
   use { 'lewis6991/gitsigns.nvim', }
 
   -- motion
-  use {
-    'phaazon/hop.nvim',
-    branch = 'v2', -- optional but strongly recommended
-  }
+  -- use {
+  --   'phaazon/hop.nvim',
+  --   branch = 'v2', -- optional but strongly recommended
+  -- }
+  -- jump 
+  use 'ggandor/leap.nvim'
 
   -- UI 增强
   use "onsails/lspkind-nvim"
