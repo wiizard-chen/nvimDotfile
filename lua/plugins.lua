@@ -149,8 +149,19 @@ packer.startup(function(use)
   -- jump 
   use 'ggandor/leap.nvim'
 
+  use({
+    "kylechui/nvim-surround",
+    tag = "*", -- Use for stability; omit to use `main` branch for the latest features
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here, or leave empty to use defaults
+        })
+    end
+  })
+
   -- UI 增强
   use "onsails/lspkind-nvim"
+
   use 'glepnir/lspsaga.nvim' -- LSP UIs
 
   use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
