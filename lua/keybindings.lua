@@ -138,6 +138,7 @@ map('n', '<leader>5', '<cmd>lua require("bufferline").go_to_buffer(5, true)<cr>'
 map('n', '<leader>6', '<cmd>lua require("bufferline").go_to_buffer(6, true)<cr>', opt);
 map('n', '<leader>7', '<cmd>lua require("bufferline").go_to_buffer(7, true)<cr>', opt);
 map('n', '<leader>8', '<cmd>lua require("bufferline").go_to_buffer(8, true)<cr>', opt);
+map('n', '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>', opt);
 
 -- 插件快捷键
 local pluginKeys = {}
