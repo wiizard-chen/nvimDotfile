@@ -6,7 +6,9 @@ if (not status) then
 end
 
 vim.cmd [[packadd packer.nvim]]
+
 -- Autocommand that reloads neovim whenever you save the plugins.lua file
+
 vim.cmd [[
   augroup packer_user_config
     autocmd!
@@ -58,11 +60,17 @@ packer.startup(function(use)
   use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
 
-  -- treesitter
+  ------------------- treesitter ----------------------------
   use {
     'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
   }
+
+  ------------------- comment ----------------------------
+  use {
+    "numToStr/Comment.nvim",
+  }
+  use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
   -- -- dashboard
   -- -- use("glepnir/dashboard-nvim")
@@ -70,11 +78,6 @@ packer.startup(function(use)
   -- -- use { "ahmedkhalf/project.nvim" }
 
 
-  -- -- comment
-  -- use {
-  --   "numToStr/Comment.nvim",
-  -- }
-  -- use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
 
   -- -- float term
