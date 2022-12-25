@@ -1,4 +1,6 @@
 ----------- 自动加载 after 里面的所有文件夹 ---------------
+require('autocmd')
+
 require('base')
 
 require('keybindings')
