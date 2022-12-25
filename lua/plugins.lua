@@ -88,6 +88,12 @@ packer.startup(function(use)
   -- prettier 格式化
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
 
+
+  use {
+    "folke/trouble.nvim",
+    requires = "kyazdani42/nvim-web-devicons",
+  }
+
   ------------------- project ----------------------------
   -- session manager
   use {
@@ -95,13 +101,13 @@ packer.startup(function(use)
     config = function()
       require("auto-session").setup {
         log_level = "error",
-        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+        auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/" },
       }
     end
   }
 
   -- fold
-  use {'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async'}
+  use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
 
   -- -- float term
@@ -109,18 +115,6 @@ packer.startup(function(use)
   --   require("toggleterm").setup()
   -- end }
 
-  -- -- TypeScript 增强
-  -- use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
-
-  -- -- JSON 增强
-  -- use("b0o/schemastore.nvim")
-
-
-
-  -- -- tabby
-  -- -- use 'nanozuki/tabby.nvim'
-  -- --
-  -- use 'famiu/bufdelete.nvim'
 
   -- use { 'lewis6991/gitsigns.nvim', }
 
