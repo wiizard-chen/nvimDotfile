@@ -6,30 +6,43 @@ if not status then
   return
 end
 
--- 列表操作快捷键
-local list_keys = require("keybindings").nvimTreeList
-
 function start_telescope(telescope_mode)
   local node = require("nvim-tree.lib").get_node_at_cursor()
   local abspath = node.link_to or node.absolute_path
   local is_folder = node.open ~= nil
   local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
-  require("telescope.builtin")[telescope_mode] {
-    cwd = basedir,
-  }
+  
+  if telescope_mode == 'grep_string' then
+    print('live_grep', basedir)
+    require("telescope.builtin").grep_string {
+      cwd = basedir,
+      use_regex = false,
+      grep_open_files = false,
+      search = vim.fn.input("Grep > ")
+    }
+    return
+  end
+
+  if telescope_mode == 'find_files' then
+    require("telescope.builtin")[telescope_mode] {
+      cwd = basedir,
+    }
+  end
 end
 
 local function telescope_find_files(_)
   start_telescope "find_files"
 end
 
-local function telescope_live_grep(_)
-  start_telescope "live_grep"
+local function telescope_grep_string(_)
+  start_telescope "grep_string"
 end
 
 nvim_tree.setup({
+  
   -- 完全禁止内置netrw
   disable_netrw = true,
+
   ignore_ft_on_setup = {
     "startify",
     "dashboard",
@@ -43,7 +56,7 @@ nvim_tree.setup({
 
   -- 不显示 git 状态图标
   git = {
-    enable = false,
+    enable = true,
   },
   -- project plugin 需要这样设置
   update_cwd = false,
@@ -61,7 +74,8 @@ nvim_tree.setup({
   },
   view = {
     -- 宽度
-    width = 50,
+    -- width = 60,
+    adaptive_size = true,
     -- 也可以 'right'
     side = "left",
     -- 隐藏根目录
@@ -83,14 +97,14 @@ nvim_tree.setup({
         { key = "gy", action = "copy_absolute_path" },
         { key = "I", action = "toggle_file_info" },
         { key = "n", action = "tabnew" },
-
         { key = { "l", "o" }, action = "edit", mode = "n" },
         { key = "<CR>", action = "system_open" },
         { key = "h", action = "close_node" },
         { key = "v", action = "vsplit" },
         { key = "C", action = "cd" },
         { key = "g;f", action = "telescope_find_files", action_cb = telescope_find_files },
-        { key = "g;r", action = "telescope_live_grep", action_cb = telescope_live_grep },
+        { key = "g;r", action = "telescope_grep_string", action_cb = telescope_grep_string },
+        -- { key = "g;r", action = "telescope_live_grep", action_cb = telescope_live_grep },
       },
     },
     -- 不显示行数
@@ -107,7 +121,7 @@ nvim_tree.setup({
       restrict_above_cwd = false,
     },
     open_file = {
-      quit_on_open = false,
+      quit_on_open = true,
       resize_window = true,
       window_picker = {
         enable = true,
@@ -119,6 +133,65 @@ nvim_tree.setup({
       },
     },
   },
+renderer = {
+        add_trailing = false,
+        group_empty = false,
+        highlight_git = false,
+        full_name = false,
+        highlight_opened_files = "none",
+        root_folder_label = ":~:s?$?/..?",
+        indent_width = 2,
+        indent_markers = {
+          enable = false,
+          inline_arrows = true,
+          icons = {
+            corner = "└",
+            edge = "│",
+            item = "│",
+            bottom = "─",
+            none = " ",
+          },
+        },
+        icons = {
+          webdev_colors = true,
+          git_placement = "before",
+          padding = " ",
+          symlink_arrow = " ➛ ",
+          show = {
+            file = true,
+            folder = true,
+            folder_arrow = true,
+            git = true,
+          },
+          glyphs = {
+            default = "",
+            symlink = "",
+            bookmark = "",
+            folder = {
+              arrow_closed = "",
+              arrow_open = "",
+              default = "",
+              open = "",
+              empty = "",
+              empty_open = "",
+              symlink = "",
+              symlink_open = "",
+            },
+            git = {
+              unstaged = "✗",
+              staged = "✓",
+              unmerged = "",
+              renamed = "➜",
+              untracked = "★",
+              deleted = "",
+              ignored = "◌",
+            },
+          },
+        },
+        special_files = { "Cargo.toml", "Makefile", "README.md", "readme.md" },
+        symlink_destination = true,
+  },
+
 
   -- wsl install -g wsl-open
   -- https://github.com/4U6U57/wsl-open/

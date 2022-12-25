@@ -125,3 +125,9 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 -- leader key 为空, 很重要的
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
+
+
+-- nvim tree config
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+

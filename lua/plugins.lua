@@ -25,6 +25,10 @@ packer.startup(function(use)
 
   use { 'EdenEast/nightfox.nvim' }
 
+  use { 'morhetz/gruvbox' }
+
+  ------------------- telescope ----------------------------
+
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
 
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -35,6 +39,7 @@ packer.startup(function(use)
 
   -- which key 所有的快捷键绑定在这
   use { "folke/which-key.nvim" }
+  
   ------------------- nvim-tree ----------------------------
   use { "kyazdani42/nvim-tree.lua",
     requires = {
@@ -42,8 +47,11 @@ packer.startup(function(use)
     },
   }
 
-  -- -- bufferline (新增)
-  -- use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
+  ------------------- buffline ----------------------------
+
+  use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+
+  use { 'famiu/bufdelete.nvim' }
 
   -- use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 

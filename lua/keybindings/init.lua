@@ -30,7 +30,11 @@ wk.register({
   },
   ['<leader>'] = {
     name = 'leader other',
-    qq = { ":wqa!<CR>", "save all file and quit" }
+    qq = { ":wqa!<CR>", "save all file and quit" },
+    b = {
+      ":NvimTreeToggle<CR>",
+      "open nvim tree"
+    },
   },
   [";"] = {
     name = 'telescope',
