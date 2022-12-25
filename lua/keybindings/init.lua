@@ -35,6 +35,23 @@ wk.register({
       ":NvimTreeToggle<CR>",
       "open nvim tree"
     },
+    w = {
+      "<cmd>lua require('bufdelete').bufdelete(0, true)<CR>",
+      "close buffer"
+    },
+    r = {
+      ":edit<CR>",
+      "refresh buffer",
+    },
+    n = {
+      ":tabedit<CR>",
+      "new buffer",
+    },
+    ["fs"] = {
+      ":wa!<CR>",
+      "save all buffer"
+    },
+
   },
   [";"] = {
     name = 'telescope',
