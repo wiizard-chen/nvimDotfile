@@ -44,13 +44,22 @@ wk.register({
       "refresh buffer",
     },
     n = {
-      ":tabedit<CR>",
+      ":enew<CR>",
       "new buffer",
     },
-    ["fs"] = {
-      ":wa!<CR>",
-      "save all buffer"
+    f = {
+      s = {
+        ":wa!<CR>",
+        "save all buffer"
+      },
+      f = {
+        vim.lsp.buf.format,
+        "format"
+      }
     },
+  },
+  g = {
+    name = 'lsp',
 
   },
   [";"] = {

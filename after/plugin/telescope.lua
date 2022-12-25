@@ -2,6 +2,7 @@ local status, telescope = pcall(require, "telescope")
 if (not status) then
   return print('no install telescope')
 end
+
 local actions = require('telescope.actions')
 
 local builtin = require("telescope.builtin")

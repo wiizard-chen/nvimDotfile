@@ -63,7 +63,7 @@ packer.startup(function(use)
   ------------------- treesitter ----------------------------
   use {
     'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
+    run = ':TSUpdate'
   }
 
   ------------------- comment ----------------------------
@@ -72,12 +72,34 @@ packer.startup(function(use)
   }
   use { "JoosepAlviste/nvim-ts-context-commentstring" }
 
-  -- -- dashboard
-  -- -- use("glepnir/dashboard-nvim")
-  -- -- project
-  -- -- use { "ahmedkhalf/project.nvim" }
+  ------------------- lsp ----------------------------
 
+  use {
+    'VonHeikemen/lsp-zero.nvim',
+    requires = {
+      -- LSP Support
+      { 'neovim/nvim-lspconfig' },
+      { 'williamboman/mason.nvim' },
+      { 'williamboman/mason-lspconfig.nvim' },
 
+      -- Autocompletion
+      { 'hrsh7th/nvim-cmp' },
+      { 'hrsh7th/cmp-buffer' },
+      { 'hrsh7th/cmp-path' },
+      { 'saadparwaiz1/cmp_luasnip' },
+      { 'hrsh7th/cmp-nvim-lsp' },
+      { 'hrsh7th/cmp-nvim-lua' },
+
+      -- Snippets
+      { 'L3MON4D3/LuaSnip' },
+      { 'rafamadriz/friendly-snippets' },
+    }
+  }
+
+  use 'glepnir/lspsaga.nvim' -- LSP UIs
+
+  -- prettier 格式化
+  use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
 
 
   -- -- float term

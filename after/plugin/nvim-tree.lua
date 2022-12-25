@@ -6,12 +6,12 @@ if not status then
   return
 end
 
-function start_telescope(telescope_mode)
+local function start_telescope(telescope_mode)
   local node = require("nvim-tree.lib").get_node_at_cursor()
   local abspath = node.link_to or node.absolute_path
   local is_folder = node.open ~= nil
   local basedir = is_folder and abspath or vim.fn.fnamemodify(abspath, ":h")
-  
+
   if telescope_mode == 'grep_string' then
     print('live_grep', basedir)
     require("telescope.builtin").grep_string {
@@ -39,7 +39,7 @@ local function telescope_grep_string(_)
 end
 
 nvim_tree.setup({
-  
+
   -- 完全禁止内置netrw
   disable_netrw = true,
 
