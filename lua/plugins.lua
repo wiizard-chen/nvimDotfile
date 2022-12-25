@@ -49,31 +49,26 @@ packer.startup(function(use)
 
   ------------------- buffline ----------------------------
 
-  use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
+  use { "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
 
   use { 'famiu/bufdelete.nvim' }
 
+  use { "arkav/lualine-lsp-progress" }
+
+  use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
 
 
-
-  -- use({ "nvim-lualine/lualine.nvim", requires = { "kyazdani42/nvim-web-devicons" } })
-
-  -- use("arkav/lualine-lsp-progress")
-
-  -- -- telescope
-  -- use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
-  -- use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- treesitter
+  use {
+    'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
 
   -- -- dashboard
   -- -- use("glepnir/dashboard-nvim")
   -- -- project
   -- -- use { "ahmedkhalf/project.nvim" }
 
-  -- -- treesitter
-  -- use {
-  --   'nvim-treesitter/nvim-treesitter',
-  --   run = ':TSUpdate'
-  -- }
 
   -- -- comment
   -- use {
