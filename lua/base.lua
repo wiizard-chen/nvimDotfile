@@ -40,7 +40,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- 搜索不要高亮
-vim.o.hlsearch = true
+vim.o.hlsearch = false
 -- 边输入边搜索
 vim.o.incsearch = true
 
@@ -105,7 +105,7 @@ vim.o.showtabline = 2
 -- 使用增强状态栏插件后不再需要 vim 的模式提示
 vim.o.showmode = false
 
--- copy with 
+-- copy with
 -- https://github.com/craftzdog/dotfiles-public/blob/master/.config/nvim/lua/craftzdog/base.lua
 vim.o.breakindent = true
 -- ignoe node_modules
@@ -122,3 +122,6 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   command = "set nopaste"
 })
 
+-- leader key 为空, 很重要的
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "

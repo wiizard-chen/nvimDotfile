@@ -18,29 +18,29 @@ vim.cmd [[
 packer.startup(function(use)
   -- Packer 可以管理自己本身
   use 'wbthomason/packer.nvim'
+
   use 'nvim-lua/plenary.nvim' -- Common utilities
 
   ------------------- colortheme ----------------------------
 
   use { 'EdenEast/nightfox.nvim' }
-  
+
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
 
   use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  
+
+  -- harpoon 定位非常好用的
+  use("ThePrimeagen/harpoon")
 
 
+  -- which key 所有的快捷键绑定在这
+  use { "folke/which-key.nvim" }
   ------------------- nvim-tree ----------------------------
-  --
-
-
-  -- use {
-  --   'kyazdani42/nvim-tree.lua',
-  --   requires = {
-  --     'kyazdani42/nvim-web-devicons', -- optional, for file icteons
-  --   },
-  --   tag = 'nightly' -- optional, updated every week. (see issue #1193)
-  -- }
+  use { "kyazdani42/nvim-tree.lua",
+    requires = {
+    'kyazdani42/nvim-web-devicons', -- optional, for file icteons
+    },
+  }
 
   -- -- bufferline (新增)
   -- use({ "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons", "moll/vim-bbye" } })
@@ -86,8 +86,6 @@ packer.startup(function(use)
   -- use 'norcalli/nvim-colorizer.lua'
   -- use "ray-x/lsp_signature.nvim"
 
-  -- -- harpoon
-  -- use("ThePrimeagen/harpoon")
 
 
   -- -- 补全引擎

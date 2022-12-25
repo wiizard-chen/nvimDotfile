@@ -9,22 +9,22 @@ local builtin = require("telescope.builtin")
 local function get_pickers(actions)
   return {
     find_files = {
-      theme = "dropdown",
+      -- theme = "dropdown",
       hidden = true,
       previewer = false,
     },
     live_grep = {
       --@usage don't include the filename in the search results
       only_sort_text = true,
-      theme = "dropdown",
+      -- theme = "dropdown",
     },
     grep_string = {
       only_sort_text = true,
-      theme = "dropdown",
+      -- theme = "dropdown",
     },
     buffers = {
-      theme = "dropdown",
-      -- previewer = true,
+      -- theme = "dropdown",
+      previewer = true,
       initial_mode = "normal",
       mappings = {
         i = {
@@ -91,68 +91,34 @@ telescope.setup {
       override_file_sorter = true, -- override the file sorter
       case_mode = "smart_case", -- or "ignore_case" or "respect_case"
     },
-    -- file_browser = {
-    --   theme = "dropdown",
-    --   -- disables netrw and use telescope-file-browser in its place
-    --   hijack_netrw = true,
-    --   mappings = {
-    --     -- your custom insert mode mappings
-    --     ["i"] = {
-    --       ["<C-w>"] = function() vim.cmd('normal vbd') end,
-    --     },
-    --     ["n"] = {
-    --       -- your custom normal mode mappings
-    --       ["N"] = fb_actions.create,
-    --       ["h"] = fb_actions.goto_parent_dir,
-    --       ["/"] = function()
-    --         vim.cmd('startinsert')
-    --       end
-    --     },
-    --   },
-    -- },
   },
 }
 
--- telescope.load_extension("file_browser")
 telescope.load_extension("fzf")
 telescope.load_extension("harpoon")
 
 
 --------- telescope -----------------
 
-vim.keymap.set('n', ';f',
-  function()
-    builtin.find_files({
-      no_ignore = false,
-      hidden = true
-    })
-  end)
-vim.keymap.set('n', ';r', function()
-  builtin.live_grep()
-end)
-vim.keymap.set('n', '\\\\', function()
-  builtin.buffers()
-end)
-vim.keymap.set('n', ';t', function()
-  builtin.help_tags()
-end)
-vim.keymap.set('n', ';;', function()
-  builtin.resume()
-end)
-vim.keymap.set('n', ';e', function()
-  builtin.diagnostics()
-end)
-
-
--- vim.keymap.set("n", "sf", function()
---   telescope.extensions.file_browser.file_browser({
---     path = "%:p:h",
---     cwd = telescope_buffer_dir(),
---     respect_gitignore = false,
---     hidden = true,
---     grouped = true,
---     previewer = false,
---     initial_mode = "normal",
---     layout_config = { height = 40 }
---   })
+-- vim.keymap.set('n', ';f',
+--   function()
+--     builtin.find_files({
+--       no_ignore = false,
+--       hidden = true
+--     })
+--   end)
+-- vim.keymap.set('n', ';r', function()
+--   builtin.live_grep()
+-- end)
+-- vim.keymap.set('n', '\\\\', function()
+--   builtin.buffers()
+-- end)
+-- vim.keymap.set('n', ';t', function()
+--   builtin.help_tags()
+-- end)
+-- vim.keymap.set('n', ';;', function()
+--   builtin.resume()
+-- end)
+-- vim.keymap.set('n', ';e', function()
+--   builtin.diagnostics()
 -- end)
