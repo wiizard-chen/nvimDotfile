@@ -54,7 +54,6 @@ map('n', '<leader>6', '<cmd>lua require("bufferline").go_to_buffer(6, true)<cr>'
 map('n', '<leader>7', '<cmd>lua require("bufferline").go_to_buffer(7, true)<cr>', opt);
 map('n', '<leader>8', '<cmd>lua require("bufferline").go_to_buffer(8, true)<cr>', opt);
 map('n', '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>', opt);
--- print('keybings base done')
 
 
 -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -67,4 +66,8 @@ map('n', '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>'
 -- vim.keymap.set("n", "<leader>vrr", vim.lsp.buf.references, opts)
 -- vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
 -- vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
+map('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
+map('n', '<C-k>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
+
 

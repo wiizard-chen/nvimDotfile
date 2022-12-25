@@ -89,7 +89,7 @@ wk.register({
 
     }
   },
-  ------------------------------------------
+  ----------------------- lsp -------------------
   g = {
     name = 'lsp',
     d = {
@@ -103,6 +103,22 @@ wk.register({
     n = {
       vim.lsp.buf.rename, 'rename var',
     },
+    ['.'] = {
+      '<cmd>Lspsaga code_action<CR>',
+      'code action'
+    },
+    p = {
+      '<Cmd>Lspsaga lsp_finder<CR>',
+      'all code info'
+    },
+    h = {
+      '<Cmd>Lspsaga hover_doc<CR>',
+      'lspsaga hover_doc',
+    },
+    o = {
+      '<cmd>LSoutlineToggle<CR>',
+      'open outline (amazing feature)'
+    }
   },
   ------------------------------------------
   [";"] = {

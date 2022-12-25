@@ -83,7 +83,7 @@ packer.startup(function(use)
     }
   }
 
-  use 'glepnir/lspsaga.nvim' -- LSP UIs
+  use { 'glepnir/lspsaga.nvim' } -- LSP UIs
 
   -- prettier 格式化
   use 'MunifTanjim/prettier.nvim' -- Prettier plugin for Neovim's built-in LSP client
