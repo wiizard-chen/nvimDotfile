@@ -1,4 +1,4 @@
-vim.cmd("autocmd!")
+-- vim.cmd("autocmd!")
 
 vim.g.encoding = "UTF-8"
 vim.scriptencoding = 'utf-8'
@@ -112,10 +112,6 @@ vim.o.breakindent = true
 vim.o.wildignore = '*/node_modules/*'
 vim.o.wrap = false
 
--- Undercurl
-vim.cmd([[let &t_Cs = "\e[4:3m"]])
-vim.cmd([[let &t_Ce = "\e[4:0m"]])
-
 -- Turn off paste mode when leaving insert
 vim.api.nvim_create_autocmd("InsertLeave", {
   pattern = '*',
@@ -130,4 +126,3 @@ vim.g.maplocalleader = " "
 -- nvim tree config
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-

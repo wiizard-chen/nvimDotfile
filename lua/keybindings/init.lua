@@ -11,6 +11,7 @@ require('keybindings.base');
 local builtin = require("telescope.builtin")
 
 local status, wk = pcall(require, "which-key")
+
 if (not status) then
   return print('no install whichKey')
 end
@@ -28,6 +29,7 @@ wk.register({
     c = { '<C-w>c', 'close cur screen' },
     o = { '<C-w>o', 'close other screen' },
   },
+  ------------------------------------------
   ['<leader>'] = {
     name = 'leader other',
     qq = { ":wqa!<CR>", "save all file and quit" },
@@ -57,11 +59,52 @@ wk.register({
         "format"
       }
     },
+    v = {
+      ['ws'] = {
+        vim.lsp.buf.workspace_symbol,
+        'work space symbol warning'
+      },
+      ['d'] = {
+        vim.diagnostic.open_float,
+        'diagnostic open float'
+      },
+      ['r'] = {
+        vim.lsp.buf.references,
+        'all references',
+      },
+      ['h'] = {
+        vim.lsp.buf.signature_help,
+        'sign help'
+      }
+    },
+    t = {
+      l = {
+        '<cmd>TroubleToggle loclist<cr>',
+        'show diagnostic list'
+      },
+      w = {
+        '<cmd>TroubleToggle workspace_diagnostics<cr>',
+        'show all workspace diagnostic',
+      },
+
+    }
   },
+  ------------------------------------------
   g = {
     name = 'lsp',
-
+    d = {
+      vim.lsp.buf.definition,
+      'go to definition',
+    },
+    k = {
+      vim.lsp.buf.hover,
+      'show type hover',
+    },
+    n = {
+      vim.lsp.buf.rename, 'rename var',
+    },
   },
+  ------------------------------------------
   [";"] = {
     name = 'telescope',
     f = {
