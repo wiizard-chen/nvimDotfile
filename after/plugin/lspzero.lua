@@ -11,7 +11,14 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
   ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
+  ['<C-l>'] = cmp.mapping(
+    function(fallback)
+      if cmp.visible() then
+        cmp.close()
+      else
+        cmp.complete()
+      end
+    end, { 'i', 's' })
 })
 
 -- Use cmdline & path source for ':'.
@@ -32,20 +39,6 @@ cmp.setup.cmdline("/", {
   },
 })
 
-cmp.setup({
-  mapping = cmp.mapping.preset.insert({
-    -- ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
-    -- ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
-    -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
-    -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
-    ['<C-Space>'] = cmp.mapping.complete(),
-    ['<C-e>'] = cmp.mapping.close(),
-    -- ['<CR>'] = cmp.mapping.confirm({
-    --   behavior = cmp.ConfirmBehavior.Replace,
-    --   select = true
-    -- }),
-  }),
-})
 
 lsp.set_preferences({
   suggest_lsp_servers = true,
@@ -55,12 +48,6 @@ lsp.set_preferences({
   cmp_capabilities = true,
   manage_nvim_cmp = true,
   call_servers = 'local',
-  -- sign_icons = {
-  --   error = '✘',
-  --   warn = '▲',
-  --   hint = '⚑',
-  --   info = ''
-  -- }
 })
 
 lsp.ensure_installed({
@@ -84,8 +71,8 @@ lsp.configure('sumneko_lua', {
 -- this helps with copilot setup
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
-
-lsp.nvim_workspace()
+-- delete c-e ， c-e to the end
+cmp_mappings['<C-E>'] = nil
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings
