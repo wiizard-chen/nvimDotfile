@@ -6,7 +6,7 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
-require('keybindings.base');
+require('keybindings.base')
 
 local builtin = require("telescope.builtin")
 
@@ -115,7 +115,7 @@ wk.register({
       '<Cmd>Lspsaga hover_doc<CR>',
       'lspsaga hover_doc',
     },
-    l = {
+    o = {
       '<Cmd>Lspsaga outline<CR>',
       'open outline (amazing feature)'
     },
@@ -124,9 +124,9 @@ wk.register({
       'install file',
     },
 
-  -- mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
-  -- mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)
-  -- mapbuf("n", "go", ":TSLspOrganize<CR>", opt)
+    -- mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
+    -- mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)
+    -- mapbuf("n", "go", ":TSLspOrganize<CR>", opt)
   },
   ------------------------------------------
   [";"] = {
@@ -161,6 +161,12 @@ wk.register({
         require("harpoon.mark").add_file();
       end,
       'harpoon add mark'
+    },
+    e = {
+      function()
+        builtin.resume()
+      end,
+      'telescope resume'
     },
     [';'] = {
       ';',

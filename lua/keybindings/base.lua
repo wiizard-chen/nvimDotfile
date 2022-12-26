@@ -15,10 +15,10 @@ end
 -- solve the confict with karabiner
 -- c-a go to head
 -- c-e go to tail
-map("n", "<C-a>", "0")
-map("n", "<C-e>", "$")
-map("i", "<C-a>", "<Esc>I")
-map("i", "<C-e>", "<Esc>A")
+-- map("i", "<C-A>", "<Esc>I")
+-- map("i", "<C-E>", "<Esc>A")
+map("n", "<C-A>", "0")
+map("n", "<C-E>", "$")
 
 -- c-d elete char
 -- c-h delete char backward

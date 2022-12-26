@@ -32,16 +32,35 @@ cmp.setup.cmdline("/", {
   },
 })
 
--- lsp.preset('recommended')
+cmp.setup({
+  mapping = cmp.mapping.preset.insert({
+    -- ["<C-k>"] = cmp.mapping(cmp.mapping.select_prev_item(), { "i", "c" }),
+    -- ["<C-j>"] = cmp.mapping(cmp.mapping.select_next_item(), { "i", "c" }),
+    -- ['<C-d>'] = cmp.mapping.scroll_docs(-4),
+    -- ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
+    -- ['<CR>'] = cmp.mapping.confirm({
+    --   behavior = cmp.ConfirmBehavior.Replace,
+    --   select = true
+    -- }),
+  }),
+})
 
 lsp.set_preferences({
   suggest_lsp_servers = true,
   setup_servers_on_start = true,
   set_lsp_keymaps = false,
-  configure_diagnostics = true,
+  configure_diagnostics = false,
   cmp_capabilities = true,
   manage_nvim_cmp = true,
   call_servers = 'local',
+  -- sign_icons = {
+  --   error = '✘',
+  --   warn = '▲',
+  --   hint = '⚑',
+  --   info = ''
+  -- }
 })
 
 lsp.ensure_installed({
@@ -67,9 +86,15 @@ cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 
 lsp.nvim_workspace()
+
+lsp.setup_nvim_cmp({
+  mapping = cmp_mappings
+})
+
 lsp.setup()
 
 vim.diagnostic.config({
   virtual_text = true,
   update_in_insert = true,
+  underline = true,
 })

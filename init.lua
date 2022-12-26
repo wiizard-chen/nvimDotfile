@@ -1,4 +1,5 @@
 ----------- 自动加载 after 里面的所有文件夹 ---------------
+
 require('autocmd')
 
 require('base')
@@ -8,6 +9,7 @@ require('keybindings')
 require('plugins')
 
 require('colorschema')
+
 
 -- 判断当前系统类型
 local has = vim.fn.has
