@@ -90,7 +90,7 @@ map('n', '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>'
 -- vim.keymap.set("n", "<leader>vrn", vim.lsp.buf.rename, opts)
 -- vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
 
-map('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
-map('n', '<C-k>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opts)
+map('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opt)
+map('n', '<C-k>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opt)
 
 

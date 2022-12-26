@@ -49,6 +49,10 @@ wk.register({
       ":enew<CR>",
       "new buffer",
     },
+    km = {
+      ":Telescope keymaps<CR>",
+      "show all keymaps",
+    },
     f = {
       s = {
         ":wa!<CR>",
