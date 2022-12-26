@@ -9,6 +9,29 @@ local function map(m, k, v, optional)
   vim.keymap.set(m, k, v, _opt)
 end
 
+
+-- make insert mode like emacs
+-- if you don't like emacs comment all key bind
+-- solve the confict with karabiner
+-- c-a go to head
+-- c-e go to tail
+map("n", "<C-a>", "0")
+map("n", "<C-e>", "$")
+map("i", "<C-a>", "<Esc>I")
+map("i", "<C-e>", "<Esc>A")
+
+-- c-d elete char
+-- c-h delete char backward
+-- map("i", "<C-d>", "<Del>")
+-- map("i", "<C-h>", '<BS>')
+-- map("n", "<C-d>", '"_x')
+-- map("n", "<C-h>", '"_X')
+
+-- c-k delete all backword
+-- c-u delete all forword
+-- map("i", "<C-u>", '<space><Esc>"_d0xi')
+map("i", "<C-k>", '<space><Esc>"_d$a')
+
 -- make change just change not yank
 -- make delete just delete and yank
 -- x and X just delete

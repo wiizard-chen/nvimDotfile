@@ -118,7 +118,15 @@ wk.register({
     o = {
       '<cmd>LSoutlineToggle<CR>',
       'open outline (amazing feature)'
+    },
+    i = {
+      ':TSLspOrganize',
+      'install file',
     }
+
+  -- mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
+  -- mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)
+  -- mapbuf("n", "go", ":TSLspOrganize<CR>", opt)
   },
   ------------------------------------------
   [";"] = {
