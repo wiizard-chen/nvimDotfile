@@ -4,8 +4,23 @@ if (not status) then return end
 saga.init_lsp_saga {
   server_filetype_map = {
     typescript = 'typescript'
-  }
+  },
+  show_outline = {
+    win_position = 'right',
+    --set special filetype win that outline window split.like NvimTree neotree
+    -- defx, db_ui
+    win_with = '',
+    win_width = 40,
+    auto_enter = true,
+    auto_preview = false,
+    virt_text = '┃',
+    jump_key = 'o',
+    -- auto refresh when change buffer
+    auto_refresh = true,
+  },
+
 }
+
 
 -- local opts = { noremap = true, silent = true }
 -- vim.keymap.set('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opts)
@@ -19,4 +34,3 @@ saga.init_lsp_saga {
 -- -- vim.keymap.set('n', 'gp', '<Cmd>Lspsaga peek_definition<CR>', opts)
 -- vim.keymap.set('n', 'gr', '<Cmd>Lspsaga rename<CR>', opts)
 -- -- vim.keymap.set({"n","v"}, "<C-.>", "<Cmd>Lspsaga code_action<CR>", opts)
-

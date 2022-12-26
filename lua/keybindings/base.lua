@@ -22,8 +22,8 @@ map("i", "<C-e>", "<Esc>A")
 
 -- c-d elete char
 -- c-h delete char backward
--- map("i", "<C-d>", "<Del>")
--- map("i", "<C-h>", '<BS>')
+map("i", "<C-d>", "<Del>")
+map("i", "<C-h>", '<BS>')
 -- map("n", "<C-d>", '"_x')
 -- map("n", "<C-h>", '"_X')
 
@@ -59,8 +59,8 @@ map("v", "K", ":move '<-2<CR>gv-gv")
 
 
 map("n", "J", "mzJ`z")
--- map("n", "<C-d>", "<C-d>zz")
--- map("n", "<C-u>", "<C-u>zz")
+map("n", "<C-d>", "<C-d>zz")
+map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("n", "s", "")

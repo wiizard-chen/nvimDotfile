@@ -104,7 +104,7 @@ wk.register({
       vim.lsp.buf.rename, 'rename var',
     },
     ['.'] = {
-      '<cmd>Lspsaga code_action<CR>',
+      '<Cmd>Lspsaga code_action<CR>',
       'code action'
     },
     p = {
@@ -115,14 +115,14 @@ wk.register({
       '<Cmd>Lspsaga hover_doc<CR>',
       'lspsaga hover_doc',
     },
-    o = {
-      '<cmd>LSoutlineToggle<CR>',
+    l = {
+      '<Cmd>Lspsaga outline<CR>',
       'open outline (amazing feature)'
     },
     i = {
       ':TSLspOrganize',
       'install file',
-    }
+    },
 
   -- mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
   -- mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)

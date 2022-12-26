@@ -32,7 +32,17 @@ cmp.setup.cmdline("/", {
   },
 })
 
-lsp.preset('recommended')
+-- lsp.preset('recommended')
+
+lsp.set_preferences({
+  suggest_lsp_servers = true,
+  setup_servers_on_start = true,
+  set_lsp_keymaps = false,
+  configure_diagnostics = true,
+  cmp_capabilities = true,
+  manage_nvim_cmp = true,
+  call_servers = 'local',
+})
 
 lsp.ensure_installed({
   'tsserver',
@@ -48,17 +58,6 @@ lsp.configure('sumneko_lua', {
         globals = { 'vim' }
       }
     }
-  }
-})
-
-
-lsp.set_preferences({
-  suggest_lsp_servers = false,
-  sign_icons = {
-    error = 'E',
-    warn = 'W',
-    hint = 'H',
-    info = 'I'
   }
 })
 
