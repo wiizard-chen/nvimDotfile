@@ -7,6 +7,7 @@ local cmp = require('cmp')
 
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
+
 local cmp_mappings = lsp.defaults.cmp_mappings({
   ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
   ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -69,10 +70,11 @@ lsp.configure('sumneko_lua', {
 
 -- disable completion with tab
 -- this helps with copilot setup
+cmp_mappings['<C-E>'] = nil
+cmp_mappings['<C-e>'] = nil
 cmp_mappings['<Tab>'] = nil
 cmp_mappings['<S-Tab>'] = nil
 -- delete c-e ， c-e to the end
-cmp_mappings['<C-E>'] = nil
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings

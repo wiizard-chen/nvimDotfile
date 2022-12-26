@@ -94,6 +94,11 @@ packer.startup(function(use)
     requires = "kyazdani42/nvim-web-devicons",
   }
 
+  use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
+
+
+  use 'jose-elias-alvarez/typescript.nvim'
+
   ------------------- project ----------------------------
   -- session manager
   use {
@@ -141,5 +146,4 @@ packer.startup(function(use)
 
   -- use 'glepnir/lspsaga.nvim' -- LSP UIs
 
-  -- use 'jose-elias-alvarez/null-ls.nvim' -- Use Neovim as a language server to inject LSP diagnostics, code actions, and more via Lua
 end)
