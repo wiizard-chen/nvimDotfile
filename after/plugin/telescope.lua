@@ -81,7 +81,7 @@ telescope.setup {
       }
     },
     file_ignore_patterns = {
-      ".git/", "node_modules/"
+      ".git/", "^node_modules/"
     }
   },
   pickers = get_pickers(actions),

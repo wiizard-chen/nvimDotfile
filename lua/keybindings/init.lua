@@ -9,6 +9,7 @@
 require('keybindings.base')
 
 local builtin = require("telescope.builtin")
+local themes = require('telescope.themes')
 
 local status, wk = pcall(require, "which-key")
 
@@ -32,7 +33,10 @@ wk.register({
   ------------------------------------------
   ['<leader>'] = {
     name = 'leader other',
-    qq = { ":wqa!<CR>", "save all file and quit" },
+    q = {
+      q = { ":wqa!<CR>", "save all file and quit" },
+      f = { ":sus<CR>", "switch vim to background, terminal input fg<CR> will back" },
+    },
     b = {
       ":NvimTreeToggle<CR>",
       "open nvim tree"
@@ -97,13 +101,17 @@ wk.register({
   g = {
     name = 'lsp',
     d = {
-      vim.lsp.buf.definition,
+      -- vim.lsp.buf.definition,
+      function()
+        builtin.lsp_definitions(themes.get_dropdown())
+        -- "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', themes='ivy' })<CR>",
+      end,
       'go to definition',
     },
-    k = {
-      vim.lsp.buf.hover,
-      'show type hover',
-    },
+    -- k = {
+    --   vim.lsp.buf.hover,
+    --   'show type hover',
+    -- },
     n = {
       vim.lsp.buf.rename, 'rename var',
     },

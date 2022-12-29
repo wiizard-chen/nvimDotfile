@@ -72,9 +72,10 @@ lsp.configure('sumneko_lua', {
 -- this helps with copilot setup
 cmp_mappings['<C-E>'] = nil
 cmp_mappings['<C-e>'] = nil
-cmp_mappings['<Tab>'] = nil
-cmp_mappings['<S-Tab>'] = nil
+-- cmp_mappings['<Tab>'] = nil
+-- cmp_mappings['<S-Tab>'] = nil
 -- delete c-e ， c-e to the end
+
 
 lsp.setup_nvim_cmp({
   mapping = cmp_mappings

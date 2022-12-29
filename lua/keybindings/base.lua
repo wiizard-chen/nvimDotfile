@@ -94,3 +94,7 @@ map('n', '<C-j>', '<Cmd>Lspsaga diagnostic_jump_next<CR>', opt)
 map('n', '<C-k>', '<Cmd>Lspsaga diagnostic_jump_prev<CR>', opt)
 
 
+-- open lazygit in lspsaga float terminal
+-- map("n", "<leader>fo", "<cmd>Lspsaga open_floaterm lazygit<CR>", { silent = true })
+-- close floaterm
+-- map("t", "<leader>fc", [[<C-\><C-n><cmd>Lspsaga close_floaterm<CR>]], { silent = true })

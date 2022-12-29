@@ -9,7 +9,7 @@ vim.opt.title = true
 
 -- 使用相对行号
 vim.wo.number = true
-vim.wo.relativenumber = false
+vim.wo.relativenumber = true
 -- 显示左侧图标指示列
 vim.wo.signcolumn = "yes"
 -- 右侧参考线，超过表示代码太长了，考虑换行
