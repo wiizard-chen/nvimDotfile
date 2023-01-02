@@ -1,13 +1,12 @@
-local status_ok, Terminal = pcall(require, "toggleterm")
-
-if not status_ok then
-  return
-end
+local Terminal = require('toggleterm.terminal').Terminal
 
 local M = {}
+
+-- local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+
 local vimcmd = vim.cmd
 
-M.lazygit_toggle = function()
+function _lazygit_toggle()
   local lazygit = Terminal:new {
     cmd = "lazygit",
     hidden = true,
@@ -19,11 +18,15 @@ M.lazygit_toggle = function()
     },
     on_open = function(_)
       vimcmd("startinsert!")
+      local opts = { buffer = 0 }
+      vim.keymap.set('t', ';gg', [[<C-\><C-n>0gg<cmd>lua _lazygit_toggle()<CR>]], opts)
     end,
     on_close = function(_) end,
     count = 99,
   }
   lazygit:toggle()
 end
+
+M.lazygit_toggle = _lazygit_toggle
 
 return M

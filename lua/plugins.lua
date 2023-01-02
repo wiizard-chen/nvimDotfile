@@ -116,7 +116,7 @@ packer.startup(function(use)
 
 
   ---- float term
-  use {"akinsho/toggleterm.nvim", tag = '*', config = function()
+  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
 
@@ -125,7 +125,6 @@ packer.startup(function(use)
   use { 'lewis6991/gitsigns.nvim', }
 
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
-
 
   -- -- motion
   -- -- use {

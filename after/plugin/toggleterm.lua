@@ -25,15 +25,21 @@ toggleterm.setup({
       background = "Normal",
     },
   },
-  on_open = function()
-    local opts = { buffer = 0 }
-    vim.keymap.set('t', '<C-w>', [[<C-\><C-n>0]], opts)
-    vim.keymap.set('t', '<C-q>', [[<C-\><C-n>]], opts)
-    -- vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
-    -- vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
-    -- vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
-    -- vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
-  end,
+  -- on_open = function()
+  --   local opts = { buffer = 0 }
+  --   vim.keymap.set('t', '<C-w>', [[<C-\><C-n>0]], opts)
+  --   vim.keymap.set('t', '<C-q>', [[<C-\><C-n>]], opts)
+  --   -- vim.keymap.set('t', '<C-w>', function()
+  --   --   -- [[<C-\><C-n>0<cmd>lua _LAZYGIT_TOGGLE()<CR>]]
+  --   --   vim.cmd([[<C-\><C-n>0]])
+  --   --   vim.cmd([[lua _LAZYGIT_TOGGLE()]])
+  --   -- end,
+  --   --   opts)
+  --   -- vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+  --   -- vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+  --   -- vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+  --   -- vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  -- end,
 })
 
 -- local Terminal = require("toggleterm.terminal").Terminal

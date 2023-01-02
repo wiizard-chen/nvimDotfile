@@ -8,6 +8,8 @@
 
 require('keybindings.base')
 
+local terminal = require("utils.terminal")
+
 local utils = require("utils.init")
 
 local map = utils.map
@@ -40,11 +42,9 @@ wk.register({
     n = { ':tabnew<CR>', 'new tab' },
   },
 
-
   ------------------------------------------
   ['<leader>'] = {
     name = 'leader other',
-
     q = {
       q = { utils.smart_quit, "save all file and quit" },
       f = { ":sus<CR>", "switch vim to background, terminal input fg<CR> will back" },
@@ -119,10 +119,15 @@ wk.register({
         'file commit close',
       },
       o = {
-        ':DiffViewOpen<CR>',
+        ':DiffviewOpen<CR>',
         'project commit history',
-      }
+      },
+      -- g = {
+      --   terminal.lazygit_toggle,
+      --   'toggle lazy_git'
+      -- }
     }
+
   },
   ----------------------- lsp & git -------------------
   g = {
@@ -218,8 +223,5 @@ map("n", "]e", function()
   require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
 end, { silent = true })
 
-map("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]])
-
--- vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
--- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
--- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+-- 打开 lazygit 的用法
+map("n", ";gg", terminal.lazygit_toggle)

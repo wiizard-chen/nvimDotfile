@@ -49,9 +49,7 @@ function M.smart_quit()
 
   -- save all file
   vimcmd('wa!')
-
-  M.sleep(1)
-
+  -- M.sleep(1)
   vimcmd('qa!')
 end
 
