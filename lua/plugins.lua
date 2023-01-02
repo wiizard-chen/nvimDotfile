@@ -46,7 +46,7 @@ packer.startup(function(use)
 
   ------------------- buffline ----------------------------
 
-  use { "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
+  -- use { "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
 
   use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
