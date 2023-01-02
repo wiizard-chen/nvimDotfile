@@ -17,6 +17,14 @@ packer.startup(function(use)
 
   use { 'morhetz/gruvbox' }
 
+  use { "catppuccin/nvim", as = "catppuccin" }
+
+  use({
+    'rose-pine/neovim',
+    as = 'rose-pine',
+  })
+
+
   ------------------- telescope ----------------------------
 
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
@@ -39,6 +47,8 @@ packer.startup(function(use)
   ------------------- buffline ----------------------------
 
   use { "akinsho/bufferline.nvim", requires = { "kyazdani42/nvim-web-devicons" } }
+
+  use { 'romgrk/barbar.nvim', wants = 'nvim-web-devicons' }
 
   use { 'famiu/bufdelete.nvim' }
 
@@ -100,7 +110,7 @@ packer.startup(function(use)
   use 'jose-elias-alvarez/typescript.nvim'
 
   ------------------- project ----------------------------
-  -- session manager
+  ---- session manager
   use {
     'rmagatti/auto-session',
     config = function()
@@ -111,14 +121,12 @@ packer.startup(function(use)
     end
   }
 
-  -- fold
+  ---- fold
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
 
   ---- float term
-  use { "akinsho/toggleterm.nvim", tag = '*', config = function()
-    require("toggleterm").setup()
-  end }
+  use { "akinsho/toggleterm.nvim", tag = '*' }
 
   ----- git
 
@@ -143,10 +151,5 @@ packer.startup(function(use)
   --       })
   --   end
   -- })
-
-  -- -- UI 增强
-  -- use "onsails/lspkind-nvim"
-
-  -- use 'glepnir/lspsaga.nvim' -- LSP UIs
 
 end)

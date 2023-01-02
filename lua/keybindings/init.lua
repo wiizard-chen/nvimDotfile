@@ -106,7 +106,6 @@ wk.register({
         '<cmd>TroubleToggle workspace_diagnostics<cr>',
         'show all workspace diagnostic',
       },
-
     },
     g = {
       name = 'git actions',
@@ -157,8 +156,11 @@ wk.register({
     l = {
       "<cmd>Lspsaga show_line_diagnostics<CR>",
       'show current line diagnostics',
+    },
+    O = {
+      ":TypescriptOrganizeImports<CR>",
+      "Organize imports",
     }
-
     -- mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
     -- mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)
     -- mapbuf("n", "go", ":TSLspOrganize<CR>", opt)

@@ -68,15 +68,26 @@ map("n", "s", "")
 -- from the primeagen
 map("n", "Q", "<nop>")
 
-map('n', '<leader>1', '<cmd>lua require("bufferline").go_to_buffer(1, true)<cr>', opt);
-map('n', '<leader>2', '<cmd>lua require("bufferline").go_to_buffer(2, true)<cr>', opt);
-map('n', '<leader>3', '<cmd>lua require("bufferline").go_to_buffer(3, true)<cr>', opt);
-map('n', '<leader>4', '<cmd>lua require("bufferline").go_to_buffer(4, true)<cr>', opt);
-map('n', '<leader>5', '<cmd>lua require("bufferline").go_to_buffer(5, true)<cr>', opt);
-map('n', '<leader>6', '<cmd>lua require("bufferline").go_to_buffer(6, true)<cr>', opt);
-map('n', '<leader>7', '<cmd>lua require("bufferline").go_to_buffer(7, true)<cr>', opt);
-map('n', '<leader>8', '<cmd>lua require("bufferline").go_to_buffer(8, true)<cr>', opt);
-map('n', '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>', opt);
+-- map('n', '<leader>1', '<cmd>lua require("bufferline").go_to_buffer(1, true)<cr>', opt);
+-- map('n', '<leader>2', '<cmd>lua require("bufferline").go_to_buffer(2, true)<cr>', opt);
+-- map('n', '<leader>3', '<cmd>lua require("bufferline").go_to_buffer(3, true)<cr>', opt);
+-- map('n', '<leader>4', '<cmd>lua require("bufferline").go_to_buffer(4, true)<cr>', opt);
+-- map('n', '<leader>5', '<cmd>lua require("bufferline").go_to_buffer(5, true)<cr>', opt);
+-- map('n', '<leader>6', '<cmd>lua require("bufferline").go_to_buffer(6, true)<cr>', opt);
+-- map('n', '<leader>7', '<cmd>lua require("bufferline").go_to_buffer(7, true)<cr>', opt);
+-- map('n', '<leader>8', '<cmd>lua require("bufferline").go_to_buffer(8, true)<cr>', opt);
+-- map('n', '<leader>9', '<cmd>lua require("bufferline").go_to_buffer(9, true)<cr>', opt);
+
+map('n', '<leader>1', '<Cmd>BufferGoto 1<CR>', opt);
+map('n', '<leader>2', '<Cmd>BufferGoto 2<CR>', opt);
+map('n', '<leader>3', '<Cmd>BufferGoto 3<CR>', opt);
+map('n', '<leader>4', '<Cmd>BufferGoto 4<CR>', opt);
+map('n', '<leader>5', '<Cmd>BufferGoto 5<CR>', opt);
+map('n', '<leader>6', '<Cmd>BufferGoto 6<CR>', opt);
+map('n', '<leader>7', '<Cmd>BufferGoto 7<CR>', opt);
+map('n', '<leader>8', '<Cmd>BufferGoto 8<CR>', opt);
+map('n', '<leader>9', '<Cmd>BufferGoto 9<CR>', opt);
+
 
 
 -- vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
