@@ -8,6 +8,7 @@
 
 require('keybindings.base')
 
+
 local builtin = require("telescope.builtin")
 local themes = require('telescope.themes')
 
@@ -65,7 +66,7 @@ wk.register({
       f = {
         vim.lsp.buf.format,
         "format"
-      }
+      },
     },
     v = {
       ['ws'] = {
@@ -186,3 +187,6 @@ wk.register({
     }
   }
 })
+
+-- 替换当前的单词
+vim.keymap.set("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
