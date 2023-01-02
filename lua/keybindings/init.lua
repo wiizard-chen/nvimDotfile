@@ -8,8 +8,12 @@
 
 require('keybindings.base')
 
+local utils = require("utils.init")
+
+local map = utils.map
 
 local builtin = require("telescope.builtin")
+
 local themes = require('telescope.themes')
 
 local status, wk = pcall(require, "which-key")
@@ -31,11 +35,18 @@ wk.register({
     c = { '<C-w>c', 'close cur screen' },
     o = { '<C-w>o', 'close other screen' },
   },
+  t = {
+    c = { ':tabclose<CR>', 'close tab' },
+    n = { ':tabnew<CR>', 'new tab' },
+  },
+
+
   ------------------------------------------
   ['<leader>'] = {
     name = 'leader other',
+
     q = {
-      q = { ":wqa!<CR>", "save all file and quit" },
+      q = { utils.smart_quit, "save all file and quit" },
       f = { ":sus<CR>", "switch vim to background, terminal input fg<CR> will back" },
     },
     b = {
@@ -96,25 +107,31 @@ wk.register({
         'show all workspace diagnostic',
       },
 
+    },
+    g = {
+      name = 'git actions',
+      l = {
+        ':DiffviewFileHistory %<CR>',
+        'file commit history',
+      },
+      c = {
+        ':DiffviewClose<CR>',
+        'file commit close',
+      },
+      o = {
+        ':DiffViewOpen<CR>',
+        'project commit history',
+      }
     }
   },
-  ----------------------- lsp -------------------
+  ----------------------- lsp & git -------------------
   g = {
     name = 'lsp',
     d = {
-      -- vim.lsp.buf.definition,
       function()
         builtin.lsp_definitions(themes.get_dropdown())
-        -- "<cmd>lua require'telescope.builtin'.lsp_definitions({ initial_mode = 'normal', themes='ivy' })<CR>",
       end,
       'go to definition',
-    },
-    -- k = {
-    --   vim.lsp.buf.hover,
-    --   'show type hover',
-    -- },
-    n = {
-      vim.lsp.buf.rename, 'rename var',
     },
     ['.'] = {
       '<Cmd>Lspsaga code_action<CR>',
@@ -132,10 +149,10 @@ wk.register({
       '<Cmd>Lspsaga outline<CR>',
       'open outline (amazing feature)'
     },
-    i = {
-      ':TSLspOrganize',
-      'install file',
-    },
+    l = {
+      "<cmd>Lspsaga show_line_diagnostics<CR>",
+      'show current line diagnostics',
+    }
 
     -- mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
     -- mapbuf("n", "gi", ":TSLspImportAll<CR>", opt)
@@ -188,5 +205,21 @@ wk.register({
   }
 })
 
+-- vim.diagnostic
 -- 替换当前的单词
-vim.keymap.set("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map('n', '<F2>', vim.lsp.buf.rename)
+map("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+map("n", "[e", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+map("n", "]e", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+
+map("n", "gx", [[:silent execute '!$BROWSER ' . shellescape(expand('<cfile>'), 1)<CR>]])
+
+-- vim.keymap.set('n', 'gl', vim.diagnostic.open_float)
+-- vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+-- vim.keymap.set('n', ']d', vim.diagnostic.goto_next)

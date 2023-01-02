@@ -9,3 +9,6 @@ whichkey.setup({
     filetypes = { "TelescopePrompt" },
   },
 })
+
+
+-- lua require("diffview.actions").toggle_files()

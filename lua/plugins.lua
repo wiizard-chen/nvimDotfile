@@ -115,13 +115,17 @@ packer.startup(function(use)
   use { 'kevinhwang91/nvim-ufo', requires = 'kevinhwang91/promise-async' }
 
 
-  -- -- float term
+  ---- float term
   use {"akinsho/toggleterm.nvim", tag = '*', config = function()
     require("toggleterm").setup()
   end }
 
+  ----- git
 
-  -- use { 'lewis6991/gitsigns.nvim', }
+  use { 'lewis6991/gitsigns.nvim', }
+
+  use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+
 
   -- -- motion
   -- -- use {
