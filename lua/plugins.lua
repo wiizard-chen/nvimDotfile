@@ -134,6 +134,10 @@ packer.startup(function(use)
 
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
+
+  -- Lua
+  use { "folke/zen-mode.nvim", }
+
   -- -- motion
   -- -- use {
   -- --   'phaazon/hop.nvim',

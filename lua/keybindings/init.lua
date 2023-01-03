@@ -125,8 +125,11 @@ wk.register({
       --   terminal.lazygit_toggle,
       --   'toggle lazy_git'
       -- }
+    },
+    zz = {
+      require("zen-mode").toggle,
+      'zen mode'
     }
-
   },
   ----------------------- lsp & git -------------------
   g = {
