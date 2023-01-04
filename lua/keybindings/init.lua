@@ -10,7 +10,7 @@ require('keybindings.base')
 
 local terminal = require("utils.terminal")
 
-local utils = require("utils.init")
+local utils = require("utils")
 
 local map = utils.map
 
@@ -25,6 +25,28 @@ if (not status) then
 end
 
 wk.register({
+  [','] = {
+    s = {
+      "*",
+      "search word"
+    },
+    p = {
+      "[{",
+      "jump souround left bracket"
+    },
+    P = {
+      "]}",
+      "jump souround right bracket"
+    },
+    v = {
+      "/<C-r>*<CR>",
+      "search clipboard"
+    },
+    l = {
+      ":nohl<CR> :edit<CR>",
+      "refresh"
+    },
+  },
   s = {
     name = 'screen',
     s = { ':split<Return>', 'split screen' },
@@ -50,7 +72,6 @@ wk.register({
     c = { ':tabclose<CR>', 'close tab' },
     n = { ':tabnew<CR>', 'new tab' },
   },
-
   ['<leader>'] = {
     name = 'leader other',
     q = {
@@ -239,16 +260,10 @@ wk.register({
 })
 
 -- vim.diagnostic
--- 替换当前的单词
 map('n', '<F2>', vim.lsp.buf.rename)
-map("n", "<F3>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g]])
--- map("n", "<F3>", [[:%s]])
--- map("n", "<F4>", function()
---   local vimcmd = vim.api.nvim_command
---   vimcmd([[%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
---   -- vimcmd([[%s/\<<C-r><C-w>/<C-r><C-w>/g]])
---   -- vimcmd("<Left><Left>")
--- end)
+
+-- 替换当前的复制的数据，非常实用的按键
+map("n", "<F3>", [[:%s/\<<C-r>*\>/<C-r>*/g<Down>]])
 
 map("n", "[e", function()
   require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
