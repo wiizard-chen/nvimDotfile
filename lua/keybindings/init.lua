@@ -36,13 +36,21 @@ wk.register({
     ['='] = { '<C-w>=', 'resize equal' },
     c = { '<C-w>c', 'close cur screen' },
     o = { '<C-w>o', 'close other screen' },
+    n = {
+      '<cmd>BufferNext<CR>',
+      'next buffer'
+    },
+    p = {
+      '<cmd>BufferPrevious<CR>',
+      'previous buffer'
+    },
   },
   t = {
+    name = "tab",
     c = { ':tabclose<CR>', 'close tab' },
     n = { ':tabnew<CR>', 'new tab' },
   },
 
-  ------------------------------------------
   ['<leader>'] = {
     name = 'leader other',
     q = {
@@ -129,7 +137,22 @@ wk.register({
     zz = {
       require("zen-mode").toggle,
       'zen mode'
-    }
+    },
+    s = {
+      name = 'buffer opeartionf',
+      c = {
+        '<cmd>BufferCloseAllButCurrentOrPinned<CR>',
+        'close all but cur and pinned'
+      },
+      C = {
+        '<cmd>BufferCloseAllButCurrent<CR>',
+        'close all but cur and pinned'
+      },
+      p = {
+        '<cmd>BufferPin<CR>',
+        'buffer pin'
+      },
+    },
   },
   ----------------------- lsp & git -------------------
   g = {
@@ -218,7 +241,14 @@ wk.register({
 -- vim.diagnostic
 -- 替换当前的单词
 map('n', '<F2>', vim.lsp.buf.rename)
-map("n", "<leader>fr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+map("n", "<F3>", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/g]])
+-- map("n", "<F3>", [[:%s]])
+-- map("n", "<F4>", function()
+--   local vimcmd = vim.api.nvim_command
+--   vimcmd([[%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+--   -- vimcmd([[%s/\<<C-r><C-w>/<C-r><C-w>/g]])
+--   -- vimcmd("<Left><Left>")
+-- end)
 
 map("n", "[e", function()
   require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
