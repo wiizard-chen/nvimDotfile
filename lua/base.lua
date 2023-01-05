@@ -126,3 +126,14 @@ vim.g.maplocalleader = " "
 -- nvim tree config
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+
+
+-- fold
+-- vim.o.fillchars = [[eob: ,fold: ,foldopen:,foldsep: ,foldclose:]]
+-- 开启 Folding 模块
+vim.o.foldcolumn = '1' -- '0' is not bad
+vim.o.foldlevel = 9999 -- Using ufo provider need a large value, feel free to decrease the value
+vim.o.foldlevelstart = 9999
+vim.o.foldenable = false
+

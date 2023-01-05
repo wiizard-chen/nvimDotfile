@@ -24,7 +24,6 @@ packer.startup(function(use)
     as = 'rose-pine',
   })
 
-
   ------------------- telescope ----------------------------
 
   use { 'nvim-telescope/telescope.nvim', requires = { "nvim-lua/plenary.nvim" } }
@@ -135,10 +134,13 @@ packer.startup(function(use)
   use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 
 
+  ------------------- project ----------------------------
+
   -- zen mode
   use { "folke/zen-mode.nvim", }
 
   use { "windwp/nvim-autopairs"  }
+
   -- -- motion
   -- -- use {
   -- --   'phaazon/hop.nvim',

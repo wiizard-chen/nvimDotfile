@@ -53,7 +53,6 @@ require("nvim-treesitter.configs").setup { autopairs = { enable = true } }
 
 autopairs.setup(opts)
 
-
 local ts_conds = require "nvim-autopairs.ts-conds"
 local Rule = require "nvim-autopairs.rule"
 
@@ -65,6 +64,7 @@ autopairs.add_rules {
 }
 
 pcall(function()
+
   require "nvim-autopairs.completion.cmp"
   require("cmp").event:off("confirm_done", on_confirm_done)
   require("cmp").event:on("confirm_done", on_confirm_done)

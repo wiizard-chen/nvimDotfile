@@ -27,15 +27,15 @@ end
 wk.register({
   [','] = {
     s = {
-      "*",
+      "*zz",
       "search word"
     },
     p = {
-      "[{",
+      "[{zz",
       "jump souround left bracket"
     },
     P = {
-      "]}",
+      "]}zz",
       "jump souround right bracket"
     },
     v = {
