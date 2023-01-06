@@ -19,6 +19,7 @@ function _lazygit_toggle()
     on_open = function(_)
       vimcmd("startinsert!")
       local opts = { buffer = 0 }
+      vim.keymap.set('t', '<C-w>', [[<C-\><C-n>0]], opts)
       vim.keymap.set('t', ';gg', [[<C-\><C-n>0gg<cmd>lua _lazygit_toggle()<CR>]], opts)
     end,
     on_close = function(_) end,

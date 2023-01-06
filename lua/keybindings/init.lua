@@ -83,7 +83,7 @@ wk.register({
       "open nvim tree"
     },
     w = {
-      "<cmd>lua require('bufdelete').bufdelete(0, true)<CR>",
+      '<cmd>BufferDelete<CR>',
       "close buffer"
     },
     r = {
@@ -180,7 +180,15 @@ wk.register({
     name = 'lsp',
     d = {
       function()
-        builtin.lsp_definitions(themes.get_dropdown())
+        -- print(themes.get_dropdown())
+        builtin.lsp_definitions()
+        -- builtin.lsp_definitions(themes.get_dropdown())
+        -- builtin.lsp_definitions({
+        --   theme = "dropdown",
+        --   file_ignore_patterns = {
+        --     ".git/", "^node_modules/"
+        --   }
+        -- })
       end,
       'go to definition',
     },

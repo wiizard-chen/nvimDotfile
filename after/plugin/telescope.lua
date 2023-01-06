@@ -53,6 +53,9 @@ local function get_pickers(actions)
     lsp_definitions = {
       theme = "dropdown",
       initial_mode = "normal",
+      -- file_ignore_patterns = {
+      --   ".git/", "^node_modules/"
+      -- }
     },
     lsp_declarations = {
       theme = "dropdown",
@@ -81,7 +84,9 @@ telescope.setup {
       }
     },
     file_ignore_patterns = {
-      ".git/", "^node_modules/"
+      ".git/", 
+      "^node_modules/",
+      -- "node_modules/.*"
     }
   },
   pickers = get_pickers(actions),
