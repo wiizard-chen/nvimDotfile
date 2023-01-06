@@ -26,7 +26,7 @@ end
 
 wk.register({
   [','] = {
-    s = {
+    w = {
       "*zz",
       "search word"
     },
@@ -42,7 +42,7 @@ wk.register({
       "/<C-r>*<CR>",
       "search clipboard"
     },
-    l = {
+    r = {
       ":nohl<CR> :edit<CR>",
       "refresh"
     },
