@@ -139,15 +139,15 @@ packer.startup(function(use)
   -- zen mode
   use { "folke/zen-mode.nvim", }
 
-  use { "windwp/nvim-autopairs"  }
+  use { "windwp/nvim-autopairs" }
 
   -- -- motion
-  -- -- use {
-  -- --   'phaazon/hop.nvim',
-  -- --   branch = 'v2', -- optional but strongly recommended
-  -- -- }
-  -- -- jump
-  -- use 'ggandor/leap.nvim'
+  -- use {
+  --   'phaazon/hop.nvim',
+  --   branch = 'v2', -- optional but strongly recommended
+  -- }
+  -- jump
+  use 'ggandor/leap.nvim'
 
   -- use({
   --   "kylechui/nvim-surround",
