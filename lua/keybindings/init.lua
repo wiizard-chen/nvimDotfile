@@ -16,8 +16,6 @@ local map = utils.map
 
 local builtin = require("telescope.builtin")
 
-local themes = require('telescope.themes')
-
 local status, wk = pcall(require, "which-key")
 
 if (not status) then
