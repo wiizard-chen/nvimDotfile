@@ -84,7 +84,7 @@ telescope.setup {
       }
     },
     file_ignore_patterns = {
-      ".git/", 
+      ".git/",
       "^node_modules/",
       -- "node_modules/.*"
     }
@@ -103,27 +103,26 @@ telescope.setup {
 telescope.load_extension("fzf")
 telescope.load_extension("harpoon")
 
---------- telescope -----------------
 
--- vim.keymap.set('n', ';f',
---   function()
---     builtin.find_files({
---       no_ignore = false,
---       hidden = true
---     })
---   end)
--- vim.keymap.set('n', ';r', function()
---   builtin.live_grep()
--- end)
--- vim.keymap.set('n', '\\\\', function()
---   builtin.buffers()
--- end)
--- vim.keymap.set('n', ';t', function()
---   builtin.help_tags()
--- end)
--- vim.keymap.set('n', ';;', function()
---   builtin.resume()
--- end)
--- vim.keymap.set('n', ';e', function()
---   builtin.diagnostics()
--- end)
+
+local function changed_on_branch()
+  local previewers = require('telescope.previewers')
+  local pickers = require('telescope.pickers')
+  local sorters = require('telescope.sorters')
+  local finders = require('telescope.finders')
+  local shellPath = vim.fn.stdpath "config" .. "/shell/telescope.sh"
+
+  local picker = pickers.new {
+    results_title = 'Modified on current branch',
+    finder = finders.new_oneshot_job({ shellPath, 'list' }),
+    sorter = sorters.get_fuzzy_file(),
+    previewer = previewers.new_termopen_previewer {
+      get_command = function(entry)
+        return { shellPath, 'diff', entry.value }
+      end
+    },
+  }
+
+  picker.find()
+  -- gcc:find()
+end

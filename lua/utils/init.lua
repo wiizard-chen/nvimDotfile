@@ -31,26 +31,33 @@ function M.get_capabilities()
 end
 
 function M.smart_quit()
-  -- local bufnr = vim.api.nvim_get_current_buf()
-
-  -- local modified = vim.api.nvim_buf_get_option(bufnr, "modified")
-
-  -- if modified then
-  --   vim.ui.input({
-  --     prompt = "You have unsaved changes. Quit anyway? (y/n) ",
-  --   }, function(input)
-  --     if input == "y" then
-  --       vimcmd("q!")
-  --     end
-  --   end)
-  -- else
-  --   vimcmd("q!")
-  -- end
-
   -- save all file
   vimcmd('wa!')
   -- M.sleep(1)
   vimcmd('qa!')
+end
+
+function M.changed_on_branch()
+  local previewers = require('telescope.previewers')
+  local pickers = require('telescope.pickers')
+  local sorters = require('telescope.sorters')
+  local finders = require('telescope.finders')
+  local shellPath = vim.fn.stdpath "config" .. "/shell/telescope.sh"
+
+  pickers.new {
+    results_title = 'Modified on current branch',
+    -- finder = finders.new_oneshot_job({ shellPath, 'list' }),
+    finder = finders.new_oneshot_job({ 'git status --porcelain' }),
+    sorter = sorters.get_fuzzy_file(),
+    -- previewer = previewers.new_termopen_previewer {
+    --   get_command = function(entry)
+    --     return { shellPath, 'diff', entry.value }
+    --   end
+    -- },
+  }:find()
+
+  -- picker.find()
+  -- gcc:find()
 end
 
 return M

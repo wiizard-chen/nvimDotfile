@@ -258,6 +258,12 @@ wk.register({
       end,
       'telescope resume'
     },
+    c = {
+      function()
+        utils.changed_on_branch()
+      end,
+      'telescope resume'
+    },
     [';'] = {
       ';',
       'switch next word'
