@@ -8,6 +8,8 @@
 
 require('keybindings.base')
 
+local vimcmd = vim.cmd;
+
 local terminal = require("utils.terminal")
 
 local utils = require("utils")
@@ -165,7 +167,7 @@ wk.register({
       },
       O = {
         '<cmd>BufferCloseAllButCurrent<CR>',
-        'close all but cur' 
+        'close all but cur'
       },
       p = {
         '<cmd>BufferPin<CR>',
@@ -178,15 +180,7 @@ wk.register({
     name = 'lsp',
     d = {
       function()
-        -- print(themes.get_dropdown())
         builtin.lsp_definitions()
-        -- builtin.lsp_definitions(themes.get_dropdown())
-        -- builtin.lsp_definitions({
-        --   theme = "dropdown",
-        --   file_ignore_patterns = {
-        --     ".git/", "^node_modules/"
-        --   }
-        -- })
       end,
       'go to definition',
     },
@@ -211,7 +205,15 @@ wk.register({
       'show current line diagnostics',
     },
     O = {
-      ":TypescriptOrganizeImports<CR>",
+      function()
+        -- delete all js import
+        vimcmd('TypescriptRemoveUnused')
+        vimcmd('sleep 50m')
+        vimcmd('TypescriptOrganizeImports')
+        vimcmd('sleep 50m')
+        vimcmd('wa')
+      end,
+      -- ":TypescriptRemoveUnused<CR>:TypescriptOrganizeImports<CR>:wa!<CR>",
       "Organize imports",
     }
     -- mapbuf("n", "gR", ":TSLspRenameFile<CR>", opt)
