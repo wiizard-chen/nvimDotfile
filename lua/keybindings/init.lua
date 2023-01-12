@@ -159,13 +159,13 @@ wk.register({
     },
     s = {
       name = 'buffer opeartionf',
-      c = {
+      o = {
         '<cmd>BufferCloseAllButCurrentOrPinned<CR>',
         'close all but cur and pinned'
       },
-      C = {
+      O = {
         '<cmd>BufferCloseAllButCurrent<CR>',
-        'close all but cur and pinned'
+        'close all but cur' 
       },
       p = {
         '<cmd>BufferPin<CR>',

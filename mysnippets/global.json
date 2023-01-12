@@ -13,13 +13,6 @@
     ],
     "description": "wlog"
   },
-  "wdbg": {
-    "prefix": "wlog",
-    "body": [
-      "console.debug('---test--- ${CLIPBOARD}', ${CLIPBOARD});"
-    ],
-    "description": "wlog"
-  },
   "wdoasync": {
     "prefix": "doasync",
     "body": [
@@ -30,7 +23,7 @@
     "description": "doasync"
   },
   "wtmp": {
-    "prefix": "wres",
+    "prefix": "wtmp",
     "body": [
       "const tmp = "
     ],
