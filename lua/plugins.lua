@@ -141,13 +141,10 @@ packer.startup(function(use)
 
   use { "windwp/nvim-autopairs" }
 
-  -- -- motion
-  -- use {
-  --   'phaazon/hop.nvim',
-  --   branch = 'v2', -- optional but strongly recommended
-  -- }
-  -- jump
   use 'ggandor/leap.nvim'
+
+  ------------------- project ----------------------------
+  use { 'karb94/neoscroll.nvim'}
 
   -- use({
   --   "kylechui/nvim-surround",

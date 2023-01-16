@@ -6,6 +6,15 @@
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- reademe.md
+-- ala   终端
+-- tmux  多个 tmux
+-- nvim  文本编辑器
+-- peco  文件搜索
+-- ghq   git 的仓库管理
+-- fish  shell
+-- karabiner config
+
 require('keybindings.base')
 
 local vimcmd = vim.cmd;
@@ -289,3 +298,4 @@ end, { silent = true })
 
 -- 打开 lazygit 的用法
 map("n", ";gg", terminal.lazygit_toggle)
+

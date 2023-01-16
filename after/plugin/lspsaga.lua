@@ -1,7 +1,7 @@
 local status, saga = pcall(require, "lspsaga")
 if (not status) then return end
 
-saga.init_lsp_saga {
+saga.setup({
   server_filetype_map = {
     typescript = 'typescript'
   },
@@ -18,8 +18,7 @@ saga.init_lsp_saga {
     -- auto refresh when change buffer
     auto_refresh = true,
   },
-
-}
+})
 
 
 -- local opts = { noremap = true, silent = true }
