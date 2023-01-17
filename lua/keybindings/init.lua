@@ -159,10 +159,19 @@ wk.register({
         ':DiffviewOpen<CR>',
         'project commit history',
       },
-      -- g = {
-      --   terminal.lazygit_toggle,
-      --   'toggle lazy_git'
-      -- }
+    },
+    [';'] = {
+      name = 'shortcut telescope',
+      r = {
+      function()
+        builtin.grep_string({
+          use_regex = false,
+          grep_open_files = false,
+          search = utils.get_reg('*')
+        })
+      end,
+        'shortcut telescope grep'
+      }
     },
     zz = {
       require("zen-mode").toggle,
@@ -298,4 +307,3 @@ end, { silent = true })
 
 -- 打开 lazygit 的用法
 map("n", ";gg", terminal.lazygit_toggle)
-

@@ -60,4 +60,9 @@ function M.changed_on_branch()
   -- gcc:find()
 end
 
+function M.get_reg(char)
+  return vim.fn.getreg(char)
+  -- return vim.api.nvim_exec([[echo getreg(']]..char..[[')]], true):gsub("[\n\r]", "^J")
+end
+
 return M
