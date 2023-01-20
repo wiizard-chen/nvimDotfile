@@ -38,6 +38,9 @@ ts.setup {
   autotag = {
     enable = false,
   },
+  autoPair = {
+    enable = true,
+  },
   -- -- 启用代码高亮模块
   -- highlight = {
   --   enable = false,
@@ -56,35 +59,41 @@ ts.setup {
   -- 启用代码缩进模块 (=)
   highlight = {
     enable = true,
-    -- disable = { "vim", "typescript", "tsx", },  
+    -- disable = { "vim", "typescript", "tsx", },
     disable = function(lang, buf)
-        local max_filesize = 50 * 1024 -- 100 KB
-        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-        if ok and stats and stats.size > max_filesize then
-            return true
-        end
+      local max_filesize = 50 * 1024 -- 100 KB
+      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+
+      print('lang', lang)
+      if lang == "help" then
+        return true
+      end
+
+      if ok and stats and stats.size > max_filesize then
+        return true
+      end
     end,
   },
   indent = {
     enable = true,
-    disable = { "vim", "typescript", "tsx", },  
-  },  
+    disable = { "vim", "typescript", "tsx", },
+  },
   -- p00f/nvim-ts-rainbow
   -- rainbow = {
-    -- enable = false,
-    -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
-    -- disable = {"tsx"},
-    -- extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
-    -- max_file_lines = nil, -- Do not enable for files with more than n lines, int
-    -- colors = {
-    --   "#95ca60",
-    --   "#ee6985",
-    --   "#D6A760",
-    --   "#7794f4",
-    --   "#b38bf5",
-    --   "#7cc7fe",
-    -- }, -- table of hex strings
-    -- termcolors = { } -- table of colour name strings
+  -- enable = false,
+  -- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for
+  -- disable = {"tsx"},
+  -- extended_mode = false, -- Also highlight non-bracket delimiters like html tags, boolean or table: lang -> boolean
+  -- max_file_lines = nil, -- Do not enable for files with more than n lines, int
+  -- colors = {
+  --   "#95ca60",
+  --   "#ee6985",
+  --   "#D6A760",
+  --   "#7794f4",
+  --   "#b38bf5",
+  --   "#7cc7fe",
+  -- }, -- table of hex strings
+  -- termcolors = { } -- table of colour name strings
   -- },
 }
 
@@ -94,4 +103,3 @@ ts.setup {
 -- 默认不要折叠
 -- https://stackoverflow.com/questions/8316139/how-to-set-the-default-to-unfolded-when-you-open-a-file
 -- vim.opt.foldlevel = 99
-

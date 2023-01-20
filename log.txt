@@ -1,0 +1,45 @@
+
+
+{^M
+  [1] = "rg",^M
+  [2] = "--color=never",^M
+  [3] = "--no-heading",^M
+  [4] = "--with-filename",^M
+  [5] = "--line-number",^M
+  [6] = "--column",^M
+  [7] = "--smart-case",^M
+}
+{^M
+}
+{^M
+  [1] = "bash",^M
+  [2] = "/Users/admin/.config/nvim/shell/gitstaged.sh",^M
+  [3] = "path",^M
+}
+lang lua
+
+
+  tprint(additional_args)
+
+
+{^M
+  [1] = "bash",^M
+  [2] = "/Users/admin/.config/nvim/shell/gitstaged.sh",^M
+  [3] = "test",^M
+}
+
+
+
+
+lang lua
+
+lang lua
+{^M
+  [1] = "bash",^M
+  [2] = "/Users/admin/.config/nvim/shell/gitstaged.sh",^M
+  [3] = "echo",^M
+}
+"~/.config/nvim/log.txt" 35L, 448B 已写入
+lang lua
+
+lang lua

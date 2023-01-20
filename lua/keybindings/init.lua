@@ -79,7 +79,8 @@ wk.register({
   t = {
     name = "tab",
     c = { ':tabclose<CR>', 'close tab' },
-    n = { ':tabnew<CR>', 'new tab' },
+    n = { ':tabnew %<CR>', 'new tab' },
+    o = { ':tabonly<CR>', 'close other tab' },
   },
   ['<leader>'] = {
     name = 'leader other',
@@ -91,13 +92,17 @@ wk.register({
       ":NvimTreeToggle<CR>",
       "open nvim tree"
     },
+    l = {
+      ":put =execute('messages')<CR>",
+      "show message",
+    },
     w = {
       '<cmd>BufferDelete<CR>',
       "close buffer"
     },
     r = {
-      ":edit<CR>",
-      "refresh buffer",
+      ":luafile %<CR>",
+      "refresh config",
     },
     n = {
       ":enew<CR>",
@@ -163,13 +168,13 @@ wk.register({
     [';'] = {
       name = 'shortcut telescope',
       r = {
-      function()
-        builtin.grep_string({
-          use_regex = false,
-          grep_open_files = false,
-          search = utils.get_reg('*')
-        })
-      end,
+        function()
+          builtin.grep_string({
+            use_regex = false,
+            grep_open_files = false,
+            search = utils.get_reg('*')
+          })
+        end,
         'shortcut telescope grep'
       }
     },
@@ -197,10 +202,10 @@ wk.register({
   g = {
     name = 'lsp',
     d = {
-      -- function()
-      --   builtin.lsp_definitions()
-      -- end,
-      '<Cmd>Lspsaga goto_definition<CR>',
+      function()
+        builtin.lsp_definitions()
+      end,
+      -- '<Cmd>Lspsaga goto_definition<CR>',
       'go to definition',
     },
     ['.'] = {
@@ -279,11 +284,15 @@ wk.register({
       end,
       'telescope resume'
     },
-    c = {
+    s = {
       function()
-        utils.changed_on_branch()
+        utils.grep_in_staged({
+          use_regex = false,
+          grep_open_files = false,
+          search = vim.fn.input("Grep > ")
+        })
       end,
-      'telescope resume'
+      'grep git staged file'
     },
     [';'] = {
       ';',
@@ -307,4 +316,4 @@ map("n", "]e", function()
 end, { silent = true })
 
 -- 打开 lazygit 的用法
-map("n", ";gg", terminal.lazygit_toggle)
+map("n", ";lg", terminal.lazygit_toggle)
