@@ -21,8 +21,8 @@ map("n", "<C-A>", "0")
 map("n", "<C-E>", "$")
 
 -- jump next and jump previous focus the center of screen
-map("n", "<C-o>", "<C-o>zz")
-map("n", "<C-i>", "<C-i>zz")
+-- map("n", "<C-o>", "<C-o>zz")
+-- map("n", "<C-i>", "<C-i>zz")
 
 -- c-d elete char
 -- c-h delete char backward

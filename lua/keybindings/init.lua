@@ -197,10 +197,10 @@ wk.register({
   g = {
     name = 'lsp',
     d = {
-      -- function()
-      --   builtin.lsp_definitions()
-      -- end,
-      '<Cmd>Lspsaga goto_definition<CR>',
+      function()
+        builtin.lsp_definitions()
+      end,
+      -- '<Cmd>Lspsaga goto_definition<CR>',
       'go to definition',
     },
     ['.'] = {

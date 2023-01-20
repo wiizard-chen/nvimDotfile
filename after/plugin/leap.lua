@@ -22,5 +22,5 @@ leap.setup({
 
 -- util.map({'n', 'x', 'o'}, ';S', '<Plug>(leap-backward-to)')
 -- util.map({'n', 'x', 'o'}, ';s', '<Plug>(leap-forward-to)')
-util.map({ 'n', 'x', 'o' }, ',s', '<Plug>(leap-forward-to)')
-util.map({ 'n', 'x', 'o' }, ',S', '<Plug>(leap-backward-to)')
+util.map({ 'n', 'x', 'o' }, ',f', '<Plug>(leap-forward-to)')
+util.map({ 'n', 'x', 'o' }, ',b', '<Plug>(leap-backward-to)')

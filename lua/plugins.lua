@@ -144,7 +144,7 @@ packer.startup(function(use)
   use 'ggandor/leap.nvim'
 
   ------------------- project ----------------------------
-  use { 'karb94/neoscroll.nvim'}
+  -- use { 'karb94/neoscroll.nvim'}
 
   -- use({
   --   "kylechui/nvim-surround",
