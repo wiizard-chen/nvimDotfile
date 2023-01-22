@@ -141,7 +141,9 @@ packer.startup(function(use)
 
   use { "windwp/nvim-autopairs" }
 
-  use 'ggandor/leap.nvim'
+  use {'ggandor/leap.nvim'}
+
+  use {'windwp/nvim-ts-autotag'}
 
   ------------------- project ----------------------------
   -- use { 'karb94/neoscroll.nvim'}

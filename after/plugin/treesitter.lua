@@ -38,6 +38,9 @@ ts.setup {
   autotag = {
     enable = false,
   },
+  autoPair = {
+    enable = true,
+  },
   -- -- 启用代码高亮模块
   -- highlight = {
   --   enable = false,
